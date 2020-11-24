@@ -1,0 +1,13 @@
+Pre-Requisites
+pip install flask
+pip install flask -sqlalchemy
+pip install flask-wtf
+
+Install sqlite-tools 
+go to console and create customer table  
+CREATE TABLE customer (
+	ID INTEGER PRIMARY KEY,
+	FIRST_NAME TEXT NOT NULL,
+	SURNAME TEXT NOT NULL,
+	ADDRESS TEXT NOT NULL
+)
