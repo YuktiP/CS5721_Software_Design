@@ -1,0 +1,33 @@
+<html>
+{% block content %}
+<center>
+  <br><br><br><br><br><br><br>
+    <h1>Sign In</h1>
+
+    <form method="POST" action="/login">
+      <fi
+      {{ form.csrf_token() }}
+      <fieldset class="email">
+        {{ form.EMAIL(placeholder='youremail@example.com') }}
+      </fieldset>
+
+      <fieldset class="password">
+        {{ form.PASSWORD }}
+      </fieldset>
+
+      <div class="submit-button">
+        {{ form.SUBMIT }}
+      </div>
+    </form>
+  </div>
+</center>
+
+<style>
+  fieldset{  
+  width: 200px;
+  margin: 0 auto;
+  border: 1px solid rgb(255,232,57);
+}
+</style>
+{% endblock %}
+</html>

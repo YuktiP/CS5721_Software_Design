@@ -1,0 +1,6 @@
+Pre-Requisites
+pip install flask
+pip install flask -sqlalchemy
+pip install flask-wtf
+pip install yaml
+pip install flask_mysqldb

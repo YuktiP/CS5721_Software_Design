@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            QueryResult
+        </title>
+    </head>
+    {% block main%}
+    <body>
+        
+        <p>The list of customer </p>
+        <table>
+        {% for i in lists %}
+        <tr><td>
+            {{i.FIRSTNAME}}  
+        </td>
+        <td>
+            {{i.SURNAME}}
+        </td>
+    </tr>
+
+    </table>
+        {% endfor %}
+    
+    </body>
+    {% endblock %}
+</html>
