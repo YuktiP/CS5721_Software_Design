@@ -1,6 +1,6 @@
 from app import app,db
 from flask import render_template,redirect,url_for,flash,request
-from models import Customer, User
+from models import Customer, User,Transaction
 import forms
 
 @app.route('/', methods=['POST','GET']) 
@@ -20,6 +20,15 @@ def main():
 def Display():
     lists=User.query.all()
     return(render_template('Display.html',lists=lists))
+
+@app.route("/Enter_Transaction",methods=['POST','GET'])
+def Enter_Transaction():
+    form=forms.EnterTransactionForm()
+    if form.validate_on_submit():
+        txn=Transaction(TRANSACTION_ID=form.TRANSACTION_ID.data,CARD_NUMBER=form.CARD_NUMBER.data,TRANSACTION_TYPE=form.TRANSACTION_TYPE.data,TIMESTAMP=form.TIMESTAMP.data,AMOUNT=form.AMOUNT.data,AUTHORIZED='No')
+        txn.Add_Transaction()
+        return redirect(url_for('Enter_Transaction'))
+    return(render_template('Enter_Txn.html',form=form))    
 
 @app.route("/Enroll",methods=['POST','GET'])
 def Enroll():

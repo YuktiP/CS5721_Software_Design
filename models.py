@@ -43,3 +43,28 @@ class User(db.Model):
         if self.PASSWORD == PASSWORD:
             return True
         #return check_password_hash(self.PASSWORD, PASSWORD)
+
+
+class Transaction(db.Model):
+    TRANSACTION_ID=db.Column(db.Integer,primary_key=True)
+    CARD_NUMBER=db.Column(db.Integer)
+    TRANSACTION_TYPE=db.Column(db.String(30))
+    TIMESTAMP=db.Column(db.DateTime)
+    AMOUNT=db.Column(db.Integer)
+    AUTHORIZED=db.Column(db.String(30))
+       
+
+    def __init__(self, TRANSACTION_ID,CARD_NUMBER,TRANSACTION_TYPE,TIMESTAMP,AMOUNT,AUTHORIZED):
+        self.TRANSACTION_ID =TRANSACTION_ID
+        self.CARD_NUMBER = CARD_NUMBER
+        self.TRANSACTION_TYPE = TRANSACTION_TYPE
+        self.TIMESTAMP=TIMESTAMP
+        self.AMOUNT=AMOUNT
+        self.AUTHORIZED=AUTHORIZED
+        
+
+
+    def Add_Transaction(self):
+            db.create_all()
+            db.session.add(self)
+            db.session.commit()                 

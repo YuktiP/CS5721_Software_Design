@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Enter Transaction details </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+          function myfunc() {
+            alert("Transaction Submitted for Verification");
+          }
+          </script>
+    </head>
+    <body>
+    <table>
+    
+        <div class="container">
+            <h2>TRANSACTION_ENTRY</h2>           
+            <table class="table table-striped">
+              <form action="/Enter_Transaction" method="POST">
+              {% block main %}
+              {{form.csrf_token()}}
+              <tbody>
+                <tr>
+                  <td>TRANSACTION_ID</td>
+                  <td>{{form.TRANSACTION_ID}}</td>
+                </tr>
+                <tr>
+                  <td>CARD NUMBER</td>
+                  <td>{{form.CARD_NUMBER}}</td>
+                </tr>
+                <tr>
+                  <td>DEBIT/CREDIT TRANSACTION TYPE</td>
+                  <td>{{form.TRANSCATION_TYPE}}</td>
+                </tr>
+                <tr>
+                    <td>TIMESTAMP</td>
+                    <td>{{form.TIMESTAMP}}</td>
+                  </tr>
+                <td>AMOUNT</td>
+                  <td>{{form.AMOUNT}}</td>
+                </tr>
+            <tr>
+                <td></td>
+              <td><button onclick="myfunc()">{{form.SUBMIT}}</button></td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+    </table>
+  </form>
+</body>
+{% endblock %}
+</html>
