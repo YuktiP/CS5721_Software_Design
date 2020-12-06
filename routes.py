@@ -25,7 +25,7 @@ def Display():
 def Enter_Transaction():
     form=forms.EnterTransactionForm()
     if form.validate_on_submit():
-        txn=Transaction(TRANSACTION_ID=form.TRANSACTION_ID.data,CARD_NUMBER=form.CARD_NUMBER.data,TRANSACTION_TYPE=form.TRANSACTION_TYPE.data,TIMESTAMP=form.TIMESTAMP.data,AMOUNT=form.AMOUNT.data,AUTHORIZED='No')
+        txn=Transaction(TRANSACTION_ID=form.TRANSACTION_ID.data,CARD_NUMBER=form.CARD_NUMBER.data,TRANSACTION_TYPE=form.TRANSACTION_TYPE.data,TIMESTAMP=form.TIMESTAMP.data,AMOUNT=form.AMOUNT.data)
         txn.Add_Transaction()
         return redirect(url_for('Enter_Transaction'))
     return(render_template('Enter_Txn.html',form=form))    

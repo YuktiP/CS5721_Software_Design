@@ -51,16 +51,14 @@ class Transaction(db.Model):
     TRANSACTION_TYPE=db.Column(db.String(30))
     TIMESTAMP=db.Column(db.DateTime)
     AMOUNT=db.Column(db.Integer)
-    AUTHORIZED=db.Column(db.String(30))
        
 
-    def __init__(self, TRANSACTION_ID,CARD_NUMBER,TRANSACTION_TYPE,TIMESTAMP,AMOUNT,AUTHORIZED):
+    def __init__(self, TRANSACTION_ID,CARD_NUMBER,TRANSACTION_TYPE,TIMESTAMP,AMOUNT):
         self.TRANSACTION_ID =TRANSACTION_ID
         self.CARD_NUMBER = CARD_NUMBER
         self.TRANSACTION_TYPE = TRANSACTION_TYPE
         self.TIMESTAMP=TIMESTAMP
         self.AMOUNT=AMOUNT
-        self.AUTHORIZED=AUTHORIZED
         
 
 
