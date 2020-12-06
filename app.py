@@ -19,7 +19,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://'+MYSQL_USER+':'+MYSQL_PASSWORD
 #app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:password@localhost/qwerty'
 db=SQLAlchemy(app)
 
-
+#Import Routes
 from routes import *
+from defineRoutes.routeDashboard import *
+
 if __name__ == "__main__":
     app.run(debug=True)

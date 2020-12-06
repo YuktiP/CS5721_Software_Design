@@ -1,0 +1,32 @@
+<h1>
+    Onboard Customers
+</h1>
+{{data.dashboardName}}
+
+<style>
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+</style>
+
+<table>
+<tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Address</th>
+</tr>
+<tbody>
+{% for app in data.applications %}
+<tr>
+    <td>{{app.FirstName}}</td>
+    <td>{{app.LastName}}</td>
+    <td>{{app.Address}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
