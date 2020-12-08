@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    <table>
+    
+        <div class="container">
+            <h1>Apply Now!</h1>
+            <h2>Enter your Details</h2>           
+            <table class="table table-striped">
+              <form action="/CustomerApplication" method="POST">
+              {% block main %}
+              {{form.csrf_token()}}
+              <tbody>
+                <tr>
+                  <td>First Name</td>
+                  
+                  <td>{{form.first_name}}</td>
+                </tr>
+                <tr>
+                  <td>Surname</td>
+                  
+                  <td>{{form.last_name}}</td>
+                </tr>
+                <tr>
+                  <td>Date Of Birth</td>
+                  <td>{{form.date_of_birth}}</td>
+                </tr>
+                <td>Email Id</td>
+                  <td>{{form.email}}</td>
+                </tr>
+                <td>Address</td>
+                  <td>{{form.address}}</textarea></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>{{form.city}}</td>
+                  </tr>
+                  <tr>
+                    <td>Pin</td>
+                    <td>{{form.pin}}</td>
+                  </tr>
+            <tr>
+            <td>Contact Number</td>
+            <td>{{form.contact_number}}</td>
+            </tr>
+            <tr>
+                <td>Occupation</td>
+                <td>{{form.occupation}}</td>
+                </tr>
+                <tr>
+                    <td>Monthly Income</td>
+                    <td>{{form.monthly_income}}</td>
+                    </tr>
+                    <tr>
+                <tr>
+                    <td>PPSN</td>
+                    <td>{{form.ppsn}}</td>
+                    </tr>
+                    <tr>
+                        <td>Card Type</td>
+                        <td>{{form.card_type}}</td>
+                        </tr>
+                <tr>
+                    <td></td>
+                    <td>{{form.submit}}</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+    </table>
+  </form>
+</body>
+{% endblock %}
+</html>

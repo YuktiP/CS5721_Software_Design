@@ -29,7 +29,7 @@ def Enter_Transaction():
         txn.Add_Transaction()
         return redirect(url_for('Enter_Transaction'))
     return(render_template('Enter_Txn.html',form=form))    
-
+h
 @app.route("/Enroll",methods=['POST','GET'])
 def Enroll():
     form=forms.EnrollForm()

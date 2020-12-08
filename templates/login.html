@@ -5,18 +5,17 @@
     <h1>Sign In</h1>
 
     <form method="POST" action="/login">
-      <fi
       {{ form.csrf_token() }}
       <fieldset class="email">
-        {{ form.EMAIL(placeholder='youremail@example.com') }}
+        {{ form.email(placeholder='youremail@example.com') }}
       </fieldset>
 
       <fieldset class="password">
-        {{ form.PASSWORD }}
+        {{ form.password }}
       </fieldset>
 
       <div class="submit-button">
-        {{ form.SUBMIT }}
+        {{ form.submit }}
       </div>
     </form>
   </div>
