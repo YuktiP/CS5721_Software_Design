@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Statement
+        </title>
+    </head>
+
+    <style>
+        table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+    }
+    </style>
+
+    {% block main%}
+    <body>
+        
+        <p>Statement for Card Number: {{ statement.card_number }}</p>
+        <table>
+            <tr>
+                <th>Transaction Date</th>
+                <th>Amount</th>
+            </tr>
+        {% for i in statement.statement%}
+        <tr><td>
+            {{i.TRANSACTION_DATE}}  
+        </td>
+        <td>
+            {{i.AMOUNT}}
+        </td>
+    </tr>
+
+    </table>
+        {% endfor %}
+    
+    </body>
+    {% endblock %}
+</html>
