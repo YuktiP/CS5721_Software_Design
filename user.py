@@ -14,6 +14,7 @@ class User():
         self.income=income
         self.username=username
         self.password=password
+	#test
  
     def register_User(self):
         cur = mysql.connection.cursor()
