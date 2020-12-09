@@ -2,9 +2,9 @@ from app import db
 
 class CustomerApplication(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    first_name=db.Column(db.String(20))
-    last_name=db.Column(db.String(20))
-    date_of_birth=db.Column(db.Date)
+    firstName=db.Column(db.String(20))
+    lastName=db.Column(db.String(20))
+    dateOfBirth=db.Column(db.Date)
     address=db.Column(db.String(30))
     city=db.Column(db.String(30))
     pin=db.Column(db.String(10))
@@ -18,10 +18,10 @@ class CustomerApplication(db.Model):
     ppsn=db.column(db.Integer)
     email=db.Column(db.String(30))
 
-    def __init__(self,first_name, last_name, date_of_birth,address,city,pin, monthly_income,card_type, occupation, ppsn, contact_number,application_type,  eligibility,error_details):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.date_of_birth = date_of_birth
+    def __init__(self,firstName, lastName, dateOfBirth,address,city,pin, monthly_income,card_type, occupation, ppsn, contact_number,application_type,  eligibility,error_details):
+        self.firstName = firstName
+        self.lastName = lastName
+        self.dateOfBirth = dateOfBirth
         self.address = address
         self.monthly_income = monthly_income
         self.application_type = application_type

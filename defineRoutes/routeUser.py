@@ -9,8 +9,8 @@ def login():
     form = forms.Login()
     # Validate login attempt
     if form.validate_on_submit():
-        user = User.query.filter_by(EMAIL=form.EMAIL.data).first()
-        if user and user.check_password(PASSWORD=form.PASSWORD.data):
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and user.check_password(password=form.password.data):
             login_user(user)
             return "Logged In"
         if not user:

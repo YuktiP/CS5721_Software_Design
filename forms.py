@@ -23,12 +23,12 @@ class Login(FlaskForm):
     submit = SubmitField('submit')
 
 class EnterTransactionForm(FlaskForm):
-    TRANSACTION_ID=IntegerField('TRANSACTION_ID')
-    CARD_NUMBER=IntegerField('CARD_NUMBER')
-    TRANSACTION_TYPE=StringField('TRANSACTION_TYPE')
-    TIMESTAMP=DateTimeField('TIMESTAMP')
-    AMOUNT=IntegerField('AMOUNT')
-    SUBMIT=SubmitField('SUBMIT')
+    cardNumber=IntegerField('cardNumber')
+    transactionType=StringField('transactionType')
+    transactionSource=StringField('transactionSource')
+    timestamp=DateTimeField('timestamp')
+    amount=IntegerField('amount')
+    submit=SubmitField('submit')
 
 class CustomerApplication(FlaskForm):
     first_name=StringField('first_name')

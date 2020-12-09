@@ -24,27 +24,27 @@
               {{form.csrf_token()}}
               <tbody>
                 <tr>
-                  <td>TRANSACTION_ID</td>
-                  <td>{{form.TRANSACTION_ID}}</td>
-                </tr>
-                <tr>
                   <td>CARD NUMBER</td>
-                  <td>{{form.CARD_NUMBER}}</td>
+                  <td>{{form.cardNumber}}</td>
                 </tr>
                 <tr>
                   <td>DEBIT/CREDIT TRANSACTION TYPE</td>
-                  <td>{{form.TRANSCATION_TYPE}}</td>
+                  <td>{{form.transactionType}}</td>
+                </tr>
+                <tr>
+                  <td>TRANSACTION SOURCE</td>
+                  <td>{{form.transactionSource}}</td>
                 </tr>
                 <tr>
                     <td>TIMESTAMP</td>
-                    <td>{{form.TIMESTAMP}}</td>
+                    <td>{{form.timestamp}}</td>
                   </tr>
                 <td>AMOUNT</td>
-                  <td>{{form.AMOUNT}}</td>
+                  <td>{{form.amount}}</td>
                 </tr>
             <tr>
                 <td></td>
-              <td><button onclick="myfunc()">{{form.SUBMIT}}</button></td>
+              <td><button onclick="myfunc()">{{form.submit}}</button></td>
             </tr>
               </tbody>
             </table>

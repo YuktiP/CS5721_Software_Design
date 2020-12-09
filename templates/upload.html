@@ -1,0 +1,42 @@
+<!doctype html>
+<style>
+  table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+}
+th, td {
+padding: 15px;
+text-align: left;
+}
+</style>
+<h4>List of Customers pending for onboarding</h4>
+<table>
+  <tr>
+      <th>FIRST NAME</th>
+      <th>LAST NAME</th>
+      <th>EMAIL</th>
+      <th>MONTHLY INCOME</th>
+      <th>CARD TYPE</th>
+      <th>ACTION REQUIRED</th>
+  </tr>
+  <tbody>
+  {% for app in data.applications %}
+  <tr>
+  
+      <td>{{app.firstName}}</td>
+      <td>{{app.lastName}}</td>
+      <td>{{app.email}}</td>
+      <td>{{app.monthly_income}}</td>
+      <td>{{app.card_type}}</td>
+      <td>
+      <form method="POST" action="/singleUpload">
+      <input type="submit" value="onboard" name="onboard">
+      </form>
+      </td>
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+  
+  
+  
