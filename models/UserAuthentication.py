@@ -5,12 +5,12 @@ class User(UserMixin,db.Model):
     id=db.Column(db.Integer,primary_key=True)
     email=db.Column(db.String(25))
     password=db.Column(db.String(25))
-    role=db.Column(db.String(1))
+    role=db.Column(db.Integer)
 
     def __init__(self, email, password, role):
         self.email = email
         self.password = password
-        self.role = 'U'
+        
 
     '''def set_password(self, PASSWORD):
 	    self.PASSWORD = generate_password_hash(PASSWORD, method='sha256')'''

@@ -16,7 +16,8 @@ MYSQL_DB = dbase['mysql_db']
 
 #Using SQL Alchemy [ORM]
 app.config['SECRET_KEY']='SECURITY_KEY'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://'+MYSQL_USER+':'+MYSQL_PASSWORD+'@'+MYSQL_HOST+'/'+MYSQL_DB
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@localhost/CMS'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://'+MYSQL_USER+':'+MYSQL_PASSWORD+'@'+MYSQL_HOST+'/'+MYSQL_DB
 #app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:password@localhost/qwerty'
 db=SQLAlchemy(app)
 
@@ -28,6 +29,7 @@ login_manager.login_view
 #from routes import *
 from defineRoutes.routeCustomerApplication import *
 from defineRoutes.routeUserAuthentication import *
+from defineRoutes.routeBatch import *
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,23 @@
+<form action="/batch"  method="post">
+    <p>
+        <select name="batchProcessType">
+            {% for batchProcessType in BatchProcessTypes %}
+            <option {% if batchProcessType.Selected %}selected="selected"{% endif %}>{{ batchProcessType.Label }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <p>
+        <select name="batchType">
+            {% for batchType in BatchTypes %}
+            <option {% if batchType.Selected %}selected="selected"{% endif %}>{{ batchType.Label }}</option>
+            {% endfor %}
+        </select>
+    </p>
+
+    <button type="submit" class="btn btn-default">Register Batch</button>
+    </form> 
+
+    <h1>test</h1>
+
+
+    
