@@ -1,23 +1,60 @@
-<form action="/batch"  method="post">
+
+
+
+
+<form name="formbatch" action="/batch"  method="post">
     <p>
-        <select name="batchProcessType">
+        Batch Type :<select name="batchProcessType">
             {% for batchProcessType in BatchProcessTypes %}
             <option {% if batchProcessType.Selected %}selected="selected"{% endif %}>{{ batchProcessType.Label }}</option>
             {% endfor %}
         </select>
     </p>
     <p>
-        <select name="batchType">
+        Select Frequency : <select name="batchType">
             {% for batchType in BatchTypes %}
             <option {% if batchType.Selected %}selected="selected"{% endif %}>{{ batchType.Label }}</option>
             {% endfor %}
         </select>
     </p>
-
+    <p>
+        <h4>Daily or Fixed </h4>
+        Date : <input type="date" name="torundate" placeholder="YYYY-DD-MM">
+    </p>
+    <p>
+        <h4>Weekly</h4>
+        Days of Week : <input type="text" name="dayfrequency" placeholder="[1-7]">
+    </p>
+    <p>
+        <h4>Monthly </h4>
+        Days of Month : <input type="text" name="monthfrequency" placeholder="1-30(or 28)">
+    </p>
+    <p>
+        <h4>Yearly </h4>
+        Days of Year : <input type="text" name="yearfrequency" placeholder="[1-365]">
+    </p>
+    <p>
+        Time : <input type="time" name="toruntime">
+        <input type="text"  name="time" value="" readonly>
+    </p>
+    
     <button type="submit" class="btn btn-default">Register Batch</button>
     </form> 
 
-    <h1>test</h1>
+    <table>
+        <tr>
+            <th>Batch Type</th>
+        </tr>
+        <tbody>
+            {% for bat in batchlist %}
+            <tr>
+                <td>{{bat.batchTypeName}}</td>
+               
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 
 
     

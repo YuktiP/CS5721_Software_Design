@@ -1,17 +1,31 @@
 from app import db
 
-class Batch(db.Model):
+class BatchProcess(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     batchType=db.Column(db.Integer)
     batchProcessType=db.Column(db.Integer)
-    frequency=db.Column(db.String(150))
+    frequency=db.Column(db.String(10))
     date=db.Column(db.Date)
     isActive=db.Column(db.Boolean)
-    createdDate=db.Column(db.Date)
+    createdDate=db.Column(db.DateTime)
     createdBy=db.Column(db.Integer)
     lastRunDate=db.Column(db.Date)
+    
+    def __init__(self,batchType=0,batchTypeName="", batchProcessType=0, frequency="",date=None,isActive=False,createdDate=None, createdBy="",lastRunDate=None):
+        self.batchType = batchType
+        self.batchTypeName = batchTypeName
+        self.batchProcessType = batchProcessType
+        self.frequency = frequency
+        self.date = date
+        self.isActive = isActive
+        self.createdDate = createdDate
+        self.createdBy = createdBy
+        self.lastRunDate = lastRunDate
 
-
+    def CreateBatch(self):
+        db.create_all()
+        db.session.add(self)
+        db.session.commit()
 # Id
 
 # type (Daily, monthly, weekly, fixed, yearly) - Enum
