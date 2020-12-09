@@ -7,7 +7,7 @@ class DashboardFactory():
         self = self
         
     def getDashboard(self,url):
-        #url - employe
+        #url - employee
         return AdminDashboard()
 
 

@@ -11,17 +11,6 @@ def AdminDashboard():
     data = dashObj.getAdminDashboardData()
 
     return(render_template(data.template,data = data,form = form))
-    #data2 = None
-    #form = forms.BlockCard()
-    #if request.method == 'POST':
-     #   if request.form.get('add'):
-      #      post_id = request.form.get('add')
-       #     data2 = dashObj.unblockCard(post_id)
-        #    return redirect(url_for('AdminDashboard'))
-        #else:
-         #   post_id = request.form.get('delete')
-          #  data2 = dashObj.blockCard(post_id)
-           # return redirect(url_for('AdminDashboard'))
     
     
     
