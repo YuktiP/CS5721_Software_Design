@@ -8,7 +8,7 @@ class AdminDashboard(IDashboard):
     def __init__(self):
         self = self
     
-    def getAdminDashboardData(self):
+    def GetDashboardData(self):
         self.template = 'AdminPage.html'
         
         return self

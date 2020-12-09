@@ -9,7 +9,10 @@ class DashboardFactory():
     def getDashboard(self,url):
         #url - employee
         #return EmployeeDashboard()
-        return AdminDashboard()
+        if (url=='admin'):
+            return AdminDashboard()
+        else:    
+            return EmployeeDashboard()
 
 
 

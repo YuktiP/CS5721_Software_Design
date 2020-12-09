@@ -2,25 +2,47 @@
 <html>
     <head>
         <title>
-            QueryResult
+            List of onboarded customers 
         </title>
-    </head>
-    {% block main%}
+        <style>
+            table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+          }
+          th, td {
+          padding: 15px;
+          text-align: left;
+          }
+          </style>
+        </head>
+
     <body>
-        
+        {% block main%}
         <p>The list of customer </p>
         <table>
-        {% for i in lists %}
-        <tr><td>
-            {{i.FIRSTNAME}}  
-        </td>
-        <td>
-            {{i.SURNAME}}
-        </td>
-    </tr>
+            <thead>
+            <tr>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+                <th>STATUS</th>
+            </tr>
+            </thead>
+        <tbody>
+        {% for i in data %}
+        <tr>
+            <td>
+                {{i.firstName}}  
+            </td>
+            <td>
+                {{i.lastName}}
+            </td>
+            <td>Account Opened 
 
-    </table>
+            </td>
+        </tr>
         {% endfor %}
+    </tbody>
+</table>
     
     </body>
     {% endblock %}

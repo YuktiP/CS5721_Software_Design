@@ -1,11 +1,10 @@
-from models.CustomerApplication import CustomerApplication
 from app import app,login_required
 from flask import render_template
 import forms
 
 
 @app.route("/CustomerApplication",methods=['POST','GET'])
-@login_required
+#@login_required
 def Enroll():
     form=forms.CustomerApplication()
     if form.validate_on_submit():
