@@ -1,6 +1,5 @@
 from app import db,app
 from Interfaces.IDashboard import IDashboard
-from models.Card import *
 
 
 class AdminDashboard(IDashboard):
@@ -9,8 +8,7 @@ class AdminDashboard(IDashboard):
         self = self
     
     def GetDashboardData(self):
-        self.template = 'AdminPage.html'
-        
+        self.url = '/registerbatch'
         return self
     
     

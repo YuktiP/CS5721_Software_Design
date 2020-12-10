@@ -2,7 +2,7 @@
 
 
 
-<form name="formbatch" action="/batch"  method="post">
+<form name="formbatch" action="/registerbatch"  method="post">
     <p>
         Batch Type :<select name="batchProcessType">
             {% for batchProcessType in BatchProcessTypes %}
@@ -49,7 +49,11 @@
             {% for bat in batchlist %}
             <tr>
                 <td>{{bat.batchTypeName}}</td>
-               
+                <td>{{bat.batchProcessTypeName}}</td>
+                <td>{{bat.frequency}}</td>
+                <td>{{bat.date}}</td>
+                <td>{{bat.createdDate}}</td>
+                <td>{{bat.lastRunDate}}</td>
             </tr>
             {% endfor %}
         </tbody>

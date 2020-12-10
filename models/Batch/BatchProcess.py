@@ -11,10 +11,11 @@ class BatchProcess(db.Model):
     createdBy=db.Column(db.Integer)
     lastRunDate=db.Column(db.Date)
     
-    def __init__(self,batchType=0,batchTypeName="", batchProcessType=0, frequency="",date=None,isActive=False,createdDate=None, createdBy="",lastRunDate=None):
+    def __init__(self,batchType=0,batchTypeName="",batchProcessTypeName="", batchProcessType=0, frequency="",date=None,isActive=False,createdDate=None, createdBy="",lastRunDate=None):
         self.batchType = batchType
         self.batchTypeName = batchTypeName
         self.batchProcessType = batchProcessType
+        self.batchProcessTypeName = batchProcessTypeName
         self.frequency = frequency
         self.date = date
         self.isActive = isActive
@@ -22,10 +23,7 @@ class BatchProcess(db.Model):
         self.createdBy = createdBy
         self.lastRunDate = lastRunDate
 
-    def CreateBatch(self):
-        db.create_all()
-        db.session.add(self)
-        db.session.commit()
+    
 # Id
 
 # type (Daily, monthly, weekly, fixed, yearly) - Enum

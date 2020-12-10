@@ -1,10 +1,10 @@
 import abc
-from models.Batch import Batch
 from models.Result import Result
 
 class IBatch(abc.ABC):
+
     @abc.abstractmethod
-    def Create(self,batch) -> Result:
+    def Create(self,form) -> Result:
         pass
 
     @abc.abstractmethod

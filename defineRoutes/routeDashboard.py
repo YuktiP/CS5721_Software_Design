@@ -1,5 +1,5 @@
 from models.DashboardFactory import DashboardFactory 
-from app import app,db
+from app import app,db,current_user
 import os
 import urllib.request
 from app import app
@@ -19,13 +19,13 @@ UPLOAD_FOLDER='C:/uploads'
 
 
 
-app.route("/Dashboard")
+@app.route("/Dashboard")
 def Dashboard():
     df = DashboardFactory()
     dashObj = df.getDashboard("admin") #Employee/Customer/Admin
-    data = dashObj.getAdminDashboardData()
-
-    return(render_template(data.template,data = data))
+    data = dashObj.GetDashboardData()
+    user = current_user
+    return redirect(data.url) #(render_template(data.template,data = data))
 
 
 

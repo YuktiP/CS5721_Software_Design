@@ -1,5 +1,6 @@
 from Interfaces import IDashboard
 from models.EmployeeDashboard import EmployeeDashboard
+from models.AdminDashboard import AdminDashboard
 
 class DashboardFactory():
 
@@ -7,8 +8,6 @@ class DashboardFactory():
         self = self
         
     def getDashboard(self,url):
-        #url - employee
-        #return EmployeeDashboard()
         if (url=='admin'):
             return AdminDashboard()
         else:    
