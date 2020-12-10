@@ -23,7 +23,8 @@ class EmployeeDashboard(IDashboard):
         self=self
 
     def GetDashboardData(self):
-        result=db.session.query(CustomerApplication).all()
+        result=db.session.query(CustomerApplication).filter(CustomerApplication.application_type =='O').all()
+        db.session.query(CustomerApplication).filter(CustomerApplication.application_type =='O').update({CustomerApplication.application_type:'A'},synchronize_session=False)
         self.dashboardName = "Display a List of Customers to be onboarded"
         print(result)
         self.template = "upload.html"
