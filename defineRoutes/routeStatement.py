@@ -10,9 +10,8 @@ from app import current_user, login_manager
 
 @app.route('/ViewStatement', methods = ['GET'])
 def statement(): 
-    print(current_user)
     userId=current_user.get_id()
-    statementObj = Statement("userId")
+    statementObj = Statement(userId)
     fetchedStatement = statementObj.getStatement()
     return(render_template("ViewStatement.html", statement=statementObj))
     
