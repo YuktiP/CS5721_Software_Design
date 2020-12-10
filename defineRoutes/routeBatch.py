@@ -4,6 +4,7 @@ from flask import render_template,request
 from enums import Enums as en
 from models.Batch import BatchProcess as bat
 import datetime
+from models.Batch import BatchCreateHelper as bh
 
 @app.route("/batch",methods=['POST','GET'])
 def Batch():
@@ -25,23 +26,9 @@ def Batch():
                 b['Selected']=True
             else:
                 b['Selected']=False
-        
-        batch = bat.BatchProcess()
-        batch.batchType = en.BatchType[batchType].value
-        batch.batchTypeName = en.BatchType[batchType].name
-        batch.batchProcessType = en.BatchProcessType[batchProcessType].value
-        batch.isActive = True
-        batch.createdDate = datetime.datetime.now()
-        batch.createdBy = 1
-        if batch.batchType == en.BatchType.Daily:
-            batch.date = request.form.get('torundate')
-        elif batch.batchType == en.BatchType.Weekly:
-            batch.frequency = request.form.get('dayfrequency')
-        elif batch.batchType == en.BatchType.Monthly:
-            batch.frequency = request.form.get('monthfrequency')
-        elif batch.batchType == en.BatchType.Yearly:
-            batch.frequency = request.form.get('yearfrequency')
-            
+        createBatch = bh.batchHelper()
+        batch = createBatch.createBatchObject(request.form)
+
         batch.CreateBatch()
         batchlist = []
         batchlist.append(batch)

@@ -66,7 +66,7 @@ class Onboard():
                 credlimit=8000
             else:
                 credlimit=5000 
-            c=Creditcard(cardNo,pin,12,expDate,1,i.cardType)
+            c=Creditcard(cardNo,pin,12,expDate,1,i.card_type)
             c.addCard()
             a=Account(acno,userId,cardNo,opendate,credlimit,credlimit,'open')
             a.addAccount()

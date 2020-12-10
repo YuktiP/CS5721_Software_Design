@@ -52,6 +52,7 @@ def singleUpload():
     if request.method=='POST':
         if request.form.get('onboard'):
             add=Onboard()
+            flash('Onboarded Sucessfully')
             add.singleOnboard(data.applications)
             flash('Onboarded Sucessfully')
     return(render_template(data.template,data=data))

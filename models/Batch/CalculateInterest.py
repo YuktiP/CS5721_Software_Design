@@ -3,12 +3,12 @@ from models.Result import Result
 
 class CalculateInterest(IBatch):
 
-    def __init__(self):
-        self=self
+    def __init__(self,batch):
+        self.batch=batch
 
-    def Create(self, batch):
+    def Create(self):
         return Result(True,"Batch Created")
 
     
-    def Execute(self, name):
+    def Execute(self):
         return Result(True,"Batch Run SuccessFully")
