@@ -22,6 +22,11 @@ class Login(FlaskForm):
     password = PasswordField('password')
     submit = SubmitField('submit')
 
+class PinChange(FlaskForm):
+    password1 = PasswordField('password1')
+    password2 = PasswordField('password2')
+    submit = SubmitField('submit')
+
 class EnterTransactionForm(FlaskForm):
     cardNumber=IntegerField('cardNumber')
     transactionType=StringField('transactionType')

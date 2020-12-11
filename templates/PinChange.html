@@ -1,0 +1,33 @@
+<html>
+{% block content %}
+<center>
+  <br><br><br><br><br><br><br>
+    <h1>Change your Credit Card PIN</h1>
+
+    <form method="POST" action="/pinChange">
+      {{ form.csrf_token() }}
+      <tr>
+        <td>
+            Old PIN
+          </td>
+          <td>
+            {{ form.password1 }}
+          </td>
+      </tr>
+      <tr>
+        <td>
+            New PIN
+          </td>
+          <td>
+            {{ form.password2 }}
+          </td>
+    
+      </tr>
+      <div class="submit-button">
+        {{ form.submit }}
+      </div>
+    </form>
+  </div>
+</center>
+{% endblock %}
+</html>
