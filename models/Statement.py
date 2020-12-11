@@ -1,8 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 from app import db
 from models.UserAuthentication import User
-from models.Card_Test import Card
-from models.Transaction_Test import Transaction
+from models.card import Creditcard
+from models.Transactions import Transaction
 
 
 class Statement():
@@ -14,13 +14,14 @@ class Statement():
         findAccountNumber=User.query.filter_by(userId = self.userId).first()
         self.accountNumber = findAccountNumber.accountNumber
     
-    def getCardno(self):
+    def getCard(self):
         self.getAccountNumber()
-        findCardNumber = Card.query.filter_by(accountNumber = self.accountNumber).first()
-        self.cardNumber = findCardNumber.cardNumber
-
+        findCard = Card.query.filter_by(accountNumber = self.accountNumber).first()
+        self.cardId = findCardId.cardId
+        self.cardNumber = findCard.cardNumber
+        
     def getStatement(self):
-        self.getCardno()
-        self.statement = Transaction.query.filter_by(cardNumber = self.cardNumber).all()
+        self.getCard()
+        self.statement = Transaction.query.filter_by(cardId = self.cardId).all()
         self.template = "ViewStatement.html"
         

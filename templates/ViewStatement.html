@@ -20,7 +20,7 @@
     {% block main%}
     <body>
         
-        <p>Statement for Card Number: {{ statement.card_number }}</p>
+        <p>Statement for Card Number: {{ statement.cardNumber }}</p>
         <table>
             <tr>
                 <th>Transaction Date</th>
@@ -28,10 +28,10 @@
             </tr>
         {% for i in statement.statement%}
         <tr><td>
-            {{i.TRANSACTION_DATE}}  
+            {{i.transactionDate}}  
         </td>
         <td>
-            {{i.AMOUNT}}
+            {{i.amount}}
         </td>
     </tr>
 
