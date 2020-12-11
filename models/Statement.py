@@ -16,7 +16,7 @@ class Statement():
     
     def getCard(self):
         self.getAccountNumber()
-        findCard = Card.query.filter_by(accountNumber = self.accountNumber).first()
+        findCard = Creditcard.query.filter_by(accountNumber = self.accountNumber).first()
         self.cardId = findCardId.cardId
         self.cardNumber = findCard.cardNumber
         
