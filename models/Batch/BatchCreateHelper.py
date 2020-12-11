@@ -1,6 +1,8 @@
 from enums import Enums as en
 from models.Batch import BatchProcess as bat
 import datetime
+from app import db
+
 
 class batchHelper():
 
@@ -14,6 +16,7 @@ class batchHelper():
         batch.batchType = en.BatchType[batchType].value
         batch.batchTypeName = en.BatchType[batchType].name
         batch.batchProcessType = en.BatchProcessType[batchProcessType].value
+        batch.batchProcessTypeName = en.BatchProcessType[batchProcessType].name
         batch.isActive = True
         batch.createdDate = datetime.datetime.now()
         batch.createdBy = 1
@@ -25,5 +28,10 @@ class batchHelper():
             batch.frequency = form.get('monthfrequency')
         elif batch.batchType == en.BatchType(en.BatchType.Yearly).name:
             batch.frequency = form.get('yearfrequency')
-        
         return batch
+
+    def getBatches(self,batches):
+        for b in batches:
+            b.batchTypeName = en.BatchType(b.batchType).name
+            b.batchProcessTypeName = en.BatchProcessType(b.batchProcessType).name
+        return batches
