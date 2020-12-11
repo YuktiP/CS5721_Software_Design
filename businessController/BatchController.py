@@ -1,6 +1,6 @@
 import models.Batch.BatchProcessingService as bp
 from models.Batch import CalculateInterest as c,SettleTransactions as s,GenerateStatement as g, EmailStatement as e, UpdateReportingDB as u
-from models.Batch.BatchDBController import BatchDBController
+from dbController.BatchDBController import BatchDBController
 import enums.Enums as en
 from models.Batch.BatchCreateHelper import batchHelper
 

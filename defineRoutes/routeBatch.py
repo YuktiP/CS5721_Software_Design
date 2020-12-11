@@ -2,9 +2,7 @@
 from app import app
 from flask import render_template,request
 from enums import Enums as en
-from models.Batch import BatchController as bc
-
-
+from businessController import BatchController as bc
 
 @app.route("/registerbatch",methods=['POST','GET'])
 def Batch():
