@@ -13,23 +13,23 @@ from models.UserAuthentication import User
 from defineRoutes.onBoard import Onboard
 import datetime
 from datetime import date
-from models.onboard.CustomerOnboardService import CustomerOnboardService 
+from models.onboard.CustomerOnboardService import CustomerOnBoardService
 from models.onboard.CustomerOnboardBatchService import CustomerOnBoardBatchService
+from businessController.DashboardController import DashboardController
 
 UPLOAD_FOLDER='/Users/yuktipatil/MySpace'
 
 @app.route('/singleupload',methods=['POST','GET'])
-def employeedashboard():
-    f=DashboardFactory()
-    fobj=f.getDashboard("employee")
-    data=fobj.GetDashboardData()
+def singleupload():
+    
+    dash = DashboardController()
+    data = dash.createDashboard('singleupload')
 
     if request.method=='POST':
         if request.form.get('onboard'):
             applicationId = request.args.get('id')
             onboard=CustomerOnBoardService()
             application = db.session.query(CustomerApplication).filter(CustomerApplication.id == applicationId).first()
-            
             status=onboard.onBoardCustomer(application)
             if(status.isSuccess):
                 flash(status.text)
