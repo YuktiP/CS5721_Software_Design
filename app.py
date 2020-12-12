@@ -2,17 +2,17 @@ from flask import Flask,request,render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
 #from flask_mysqldb import MySQL
 from flask_login import LoginManager, UserMixin, current_user, login_required,logout_user,login_user
-import yaml
+#import yaml
 app=Flask(__name__)
 
 #config db in yaml file
-dbase = yaml.full_load(open('db_setup.yaml'))
+#dbase = yaml.full_load(open('db_setup.yaml'))
 
 #getting values from yaml file
-MYSQL_HOST = dbase['mysql_host']
-MYSQL_USER = dbase['mysql_user']
-MYSQL_PASSWORD = dbase['mysql_password']
-MYSQL_DB = dbase['mysql_db']
+#MYSQL_HOST = dbase['mysql_host']
+#MYSQL_USER = dbase['mysql_user']
+#MYSQL_PASSWORD = dbase['mysql_password']
+#MYSQL_DB = dbase['mysql_db']
 UPLOAD_FOLDER='C:/uploads'
 #Using SQL Alchemy [ORM]
 app.config['SECRET_KEY']='SECURITY_KEY'
@@ -35,7 +35,7 @@ from defineRoutes.routeCustomerApplication import *
 from defineRoutes.routeEnterTxn import *
 from defineRoutes.routeUserAuthentication import *
 from defineRoutes.routeDashboard import *
-#from defineRoutes.routeBatch import *
+from defineRoutes.routeCustomerDashboard import *
 from defineRoutes.routePinChange import *
 from defineRoutes.routeAdminDashboard import *
 from defineRoutes.routeBatch import *

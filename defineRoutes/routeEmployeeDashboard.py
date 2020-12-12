@@ -18,22 +18,8 @@ from models.onboard.CustomerOnboardBatchService import CustomerOnBoardBatchServi
 
 UPLOAD_FOLDER='/Users/yuktipatil/MySpace'
 
-
-@app.route('/EmployeeDashboard', methods=['POST','GET'])
-def EmployeeDashboard():   
-    if request.method=='POST':
-        file = request.files['file']
-        filename = secure_filename(file.filename)
-        docpath=os.path.join(app.config['UPLOAD_FOLDER'],filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        onboard = CustomerOnBoardBatchService()
-        data=onboard.onBoardCustomerBatch(docpath)
-        flash('File successfully uploaded')
-        return(render_template('Display.html',data=data.result))
-    return(render_template('OnBoardCustomers.html'))
-
-@app.route('/singleUpload',methods=['POST','GET'])
-def singleUpload():
+@app.route('/employeedashboard',methods=['POST','GET'])
+def employeedashboard():
     f=DashboardFactory()
     fobj=f.getDashboard("employee")
     data=fobj.GetDashboardData()
@@ -48,3 +34,16 @@ def singleUpload():
             if(status.isSuccess):
                 flash(status.text)
     return(render_template(data.template,data=data))
+
+@app.route('/bulkupload', methods=['POST','GET'])
+def bulkupload():   
+    if request.method=='POST':
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        docpath=os.path.join(app.config['UPLOAD_FOLDER'],filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        onboard = CustomerOnBoardBatchService()
+        data=onboard.onBoardCustomerBatch(docpath)
+        flash('File successfully uploaded')
+        return(render_template('Display.html',data=data.result))
+    return(render_template('OnBoardCustomers.html'))    
