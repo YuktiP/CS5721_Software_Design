@@ -18,7 +18,7 @@ from models.onboard.CustomerOnboardBatchService import CustomerOnBoardBatchServi
 
 UPLOAD_FOLDER='/Users/yuktipatil/MySpace'
 
-@app.route('/employeedashboard',methods=['POST','GET'])
+@app.route('/singleupload',methods=['POST','GET'])
 def employeedashboard():
     f=DashboardFactory()
     fobj=f.getDashboard("employee")
