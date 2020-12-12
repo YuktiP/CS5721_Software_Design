@@ -21,7 +21,7 @@ class EmployeeDashboard(IDashboard):
     def __init__(self):
         self=self
 
-    def GetDashboardData(self):
+    def getDashboardData(self):
         app_type = 'O'
         result=db.session.query(CustomerApplication).filter(CustomerApplication.application_type ==app_type).all()
         db.session.query(CustomerApplication).filter(CustomerApplication.application_type ==app_type).update({CustomerApplication.application_type:'A'},synchronize_session=False)
