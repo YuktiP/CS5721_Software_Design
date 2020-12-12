@@ -6,7 +6,7 @@ class CustomerDashboard(IDashboard):
         self = self
 
     def getDashboardData(self,requestedPage):
-        self.url = '/User'
+        self.url = '/customerdashboard'
         self.dashboardName = "Customer Home"
         self.template = "CustomerHome.html"
         return self

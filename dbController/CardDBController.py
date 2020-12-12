@@ -1,5 +1,5 @@
 from app import db
-from models.card import CreditCard
+from models.Card import CreditCard
 
 
 class CardDBController():
@@ -27,4 +27,9 @@ class CardDBController():
         db.create_all()
         db.session.add(CreditCard)
         db.session.commit()
+
+    def findCardInterest(self,cardNo):
+        self.result=db.session.query(CreditCard.interest).filter(CreditCard.cardNumber==cardNo)
+        return (self.result)
+        
 

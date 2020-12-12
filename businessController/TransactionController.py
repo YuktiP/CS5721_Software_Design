@@ -1,7 +1,7 @@
 from app import app,db
 from flask import render_template,redirect,url_for,flash,request
 from models.Transactions import Transaction
-from models.card import CreditCard
+from models.Card import CreditCard
 from datetime import datetime
 from helper.randGenerator import Randpass
 from dbController.TransactionDBController import TransactionDBController
@@ -16,7 +16,7 @@ class TransactionController():
         stat_checker=0
         func_checker=0
         date_checker=r.datecheck(form.timestamp.data)
-        stat_checker=db.session.query(Creditcard).filter(Creditcard.cardNumber==form.cardNumber.data).all()
+        stat_checker=db.session.query(CreditCard).filter(CreditCard.cardNumber==form.cardNumber.data).all()
         if len(stat_checker)==1 and date_checker ==1:
             print("verified")
             func_checker=1

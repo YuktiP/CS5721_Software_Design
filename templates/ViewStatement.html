@@ -17,27 +17,44 @@
     }
     </style>
 
-    {% block main%}
-    <body>
-        
-        <p>Statement for Card Number: {{ statement.cardNumber }}</p>
-        <table>
-            <tr>
-                <th>Transaction Date</th>
-                <th>Amount</th>
-            </tr>
-        {% for i in statement.statement%}
-        <tr><td>
-            {{i.transactionDate}}  
-        </td>
-        <td>
-            {{i.amount}}
-        </td>
-    </tr>
-
-    </table>
-        {% endfor %}
+{% block main%}
+<body>
     
-    </body>
-    {% endblock %}
+    <p>Statement for Card Number: {{ statement.cardNumber }}</p>
+    <table>
+        <tr>
+            <th>Transaction Date</th>
+            <th>Amount</th>
+        </tr>
+    <tbody>
+    {% for i in statement.statement%}
+    <tr>
+        <td>
+        {{i.timestamp}}  
+    </td>
+    <td>
+        {{i.amount}}
+    </td>
+</tr>
+</tbody>
+{% endfor %}
+<tr>
+    <td>Total Amount to be paid</td>
+    <td>
+        {{statement.sum}}
+    </td>
+</tr>
+<tr>
+    <td>Available Balance</td>
+    <td>
+        {{statement.avlbal}}
+    </td>
+</tr>    
+  
+</tr>
+</table>
+   
+
+</body>
+{% endblock %}
 </html>

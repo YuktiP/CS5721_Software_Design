@@ -1,6 +1,6 @@
 from models.AccountBuilder import AbstractBuilder as abs
 from models.UserAuthentication import User
-from models.card import CreditCard
+from models.Card import CreditCard
 from helper.randGenerator import Randpass
 from enums.Enums import *
 from werkzeug.security import generate_password_hash

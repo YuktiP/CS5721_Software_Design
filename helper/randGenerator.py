@@ -47,3 +47,14 @@ class Randpass:
     def userGen(self):
         self.userId="".join(choice(string.digits) for x in range(randint(6,6)))
         return(self.userId)
+
+    def userNameGen(self):
+        self.userName="USR"+str(randint(10,100))
+        return(self.userName)      
+
+    def datecheck(self,inputdate):
+        sysdate=datetime.datetime.now()
+        if(sysdate>=inputdate):
+            return 1
+        else:
+            return 0      

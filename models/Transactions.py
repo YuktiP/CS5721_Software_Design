@@ -17,7 +17,4 @@ class Transaction(db.Model):
         
 
 
-    def addTransaction(self):
-            db.create_all()
-            db.session.add(self)
-            db.session.commit()                 
+   

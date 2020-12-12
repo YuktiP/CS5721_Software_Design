@@ -9,4 +9,8 @@ class TransactionDBController():
     def addTransaction(self,Transaction):
         db.create_all()
         db.session.add(Transaction)
-        db.session.commit()                 
+        db.session.commit()     
+
+    def findtotalAmt(self,cardNo):
+        self.result=db.session.query(Transaction).filter(Transaction.cardNumber == cardNo).all()
+        return(self.result)                     

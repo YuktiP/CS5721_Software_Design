@@ -11,7 +11,7 @@ from app import app,db
 def statement(): 
     userId=current_user.get_id()
     statementObj = Statement(userId)
-    fetchedStatement = statementObj.getStatement()
+    fetchedStatement = statementObj.getStatement(userId)
     return(render_template("ViewStatement.html", statement=statementObj))
     
 

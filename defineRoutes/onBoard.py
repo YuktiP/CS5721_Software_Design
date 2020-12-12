@@ -7,7 +7,7 @@ import csv
 import pandas as pd 
 import os
 import urllib.request
-from models.card import CreditCard
+from models.Card import CreditCard
 from models.Account import Account
 from models.UserAuthentication import User
 import datetime
