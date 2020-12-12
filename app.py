@@ -22,6 +22,8 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://'+MYSQL_USER+':'+MYSQL_PASSWORD+'@'+MYSQL_HOST+'/'+MYSQL_DB
 #app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:root@localhost/qwerty'
 db=SQLAlchemy(app)
+db.drop_all()
+db.create_all()
 
 login_manager = LoginManager()
 login_manager.init_app(app)

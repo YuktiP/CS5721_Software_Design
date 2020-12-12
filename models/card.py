@@ -7,14 +7,18 @@ class Creditcard(db.Model):
     expiryDate=db.Column(db.Date)
     status=db.Column(db.Integer)
     cardType=db.Column(db.String(20))
+    creditLimit=db.Column(db.Integer)
+    interest=db.Column(db.Integer)
     
-    def __init__(self,cardNumber,pin,cardCode,expiryDate,status,cardType):
+    def __init__(self,cardNumber=None,pin=None,cardCode=None,expiryDate=None,status=None,cardType=None,creditLimit=None,interest=None):
         self.cardNumber=cardNumber
         self.pin=pin
         self.cardCode=cardCode
         self.expiryDate=expiryDate
         self.status=status
         self.cardType=cardType
+        self.creditLimit = creditLimit
+        self.interest = interest
 
 
     def addCard(self):

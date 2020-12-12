@@ -9,18 +9,20 @@ import csv
 import pandas as pd 
 from flask import render_template,redirect,request,url_for
 from models.card import Creditcard
-from models.account import Account
-from models.UserAuthentication import User
+from models.Account import Account
+from models import UserAuthorization as auth
 from defineRoutes.onBoard import Onboard
 import datetime
 from datetime import date
-from passgen import Randpass
+from Interfaces import IAuthorization as Iauth
 UPLOAD_FOLDER='C:/uploads'
 
 
 
 @app.route("/Dashboard")
 def Dashboard():
+    authorize = auth.UserAuthorization(request.args.get('page'))
+    authorize.Authorize()
     df = DashboardFactory()
     dashObj = df.getDashboard("admin") #Employee/Customer/Admin
     data = dashObj.GetDashboardData()
@@ -50,9 +52,9 @@ def singleUpload():
     fobj=f.getDashboard("employee")
     data=fobj.GetDashboardData()
     if request.method=='POST':
-        if request.form.get('onboard'):
+            id = request.args.get('id')
             add=Onboard()
             flash('Onboarded Sucessfully')
-            add.singleOnboard(data.applications)
+            add.singleOnboard(id)
             flash('Onboarded Sucessfully')
     return(render_template(data.template,data=data))

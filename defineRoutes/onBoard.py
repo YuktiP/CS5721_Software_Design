@@ -8,15 +8,19 @@ import pandas as pd
 import os
 import urllib.request
 from models.card import Creditcard
-from models.account import Account
+from models.Account import Account
 from models.UserAuthentication import User
 import datetime
 from datetime import date
-from passgen import Randpass
+from helper.randGenerator import Randpass
 from app import db
 import app
 import forms
 from werkzeug.security import generate_password_hash
+from enums.Enums import *
+
+from models.AccountBuilder import AccountBuilder as ab, AccountDirector as ad
+
 
 class Onboard():
 
@@ -49,8 +53,9 @@ class Onboard():
             u.addUser()
         self.result=db.session.query(User).all()
         return self
-    def singleOnboard(self,list):
-        for i in list:
+
+    def singleOnboard(self,applicationId):
+            application = db.session.query(CustomerApplication).filter(CustomerApplication.id == applicationId).first()
             randomVar=Randpass()
             passwd=randomVar.passGen()
             haspwd=generate_password_hash(passwd, method='sha256')
@@ -59,16 +64,31 @@ class Onboard():
             expDate=randomVar.cardExp()
             acno=randomVar.accGen()
             userId=randomVar.userGen()
-            opendate=date.today()
-            if i.card_type=='PLATINUM':
+            opendate=datetime.datetime.now()
+            if application.cardType=='PLATINUM':
                 credlimit=10000
-            elif i.card_type=='BRONZE':
+            elif application.cardType=='BRONZE':
                 credlimit=8000
             else:
                 credlimit=5000 
-            c=Creditcard(cardNo,pin,12,expDate,1,i.card_type)
+            
+            accountBuilder = ab.AccountBuilder()
+            accountDirector = ad.AccountDirector()
+            accountDirector.setBuilder(accountBuilder)
+            account = accountDirector.getAccount(application)
+
+            #c=Creditcard(cardNo,pin,12,expDate,1,i.cardType)
+            c = account.card
             c.addCard()
-            a=Account(acno,userId,cardNo,opendate,credlimit,credlimit,'open')
-            a.addAccount()
-            u=User(userId,acno,"username",haspwd,i.firstName,i.lastName,"customer",i.dateOfBirth,i.email,i.address,i.city,i.pin,i.occupation,i.monthly_income)
+            u = account.user
             u.addUser()
+
+            a=Account()
+            a.accountNumber = acno
+            a.userId=u.userId
+            a.cardNumber=c.cardNo
+            a.createdDate=opendate 
+            a.currentBalance=c.creditLimit
+            a.availableBalance=c.creditLimit
+            a.status=Status(Status.Active).value
+            a.addAccount()

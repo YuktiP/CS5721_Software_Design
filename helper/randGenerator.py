@@ -12,7 +12,7 @@ class Randpass:
         punc2='*'
         self.characters = string.ascii_letters+ string.digits+punc+punc1+punc2
         #for i in range(0,10):
-        self.password =  "".join(choice(self.characters) for x in range(randint(6,8)))
+        self.password =  "password" #"".join(choice(self.characters) for x in range(randint(6,8)))
         #return(self.password)
         return(self.password)
 
@@ -20,6 +20,11 @@ class Randpass:
         self.pingenerated= "".join(choice(string.digits) for x in range(randint(4,4)))
         #print(self.pingenerated)
         return(self.pingenerated)
+
+    def codeGen(self):
+        self.codegenerated= "".join(choice(string.digits) for x in range(randint(3,3)))
+        #print(self.pingenerated)
+        return(self.codegenerated)
 
     def cardGen(self):
         self.cardNo= "".join(choice(string.digits) for x in range(randint(16,16)))

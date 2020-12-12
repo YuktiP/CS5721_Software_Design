@@ -38,7 +38,7 @@ class CustomerApplication(FlaskForm):
     city=StringField('city')
     pin=StringField('pin')
     monthly_income=StringField('monthly_income')
-    card_type=StringField('card_type')
+    cardType=StringField('cardType')
     occupation=StringField('occupation')
     ppsn=StringField('ppsn')
     contact_number=StringField('contact_number')

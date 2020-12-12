@@ -9,16 +9,15 @@ class CustomerApplication(db.Model):
     city=db.Column(db.String(30))
     pin=db.Column(db.String(10))
     monthly_income=db.Column(db.Integer)
-    card_type=db.Column(db.String(20))
+    cardType=db.Column(db.String(20))
     application_type=db.Column(db.String(1))
     occupation=db.Column(db.String(20))
     contact_number=db.Column(db.String(15))
-    eligibility=db.Column(db.Boolean)
     error_details=db.Column(db.String(40))
     ppsn=db.column(db.Integer)
     email=db.Column(db.String(30))
 
-    def __init__(self,firstName, lastName, dateOfBirth,address,city,pin, monthly_income,card_type, occupation, ppsn,email, contact_number,application_type,  eligibility,error_details):
+    def __init__(self,firstName, lastName, dateOfBirth,address,city,pin, monthly_income,cardType, occupation, ppsn,email, contact_number,application_type,  eligibility,error_details):
         self.firstName = firstName
         self.lastName = lastName
         self.dateOfBirth = dateOfBirth
@@ -32,7 +31,7 @@ class CustomerApplication(db.Model):
         self.ppsn = ppsn
         self.city=city
         self.pin=pin
-        self.card_type=card_type
+        self.cardType=cardType
         self.email=email
         
     def CollectApplications(self):

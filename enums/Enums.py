@@ -23,3 +23,12 @@ class BatchProcessType(ExtendedEnum):
     GenerateStatement = 3
     EmailStatement = 4
     UpdateReportingDB = 5
+
+class Role(ExtendedEnum):
+    Admin = 1
+    Employee = 2
+    Customer = 3
+
+class Status(ExtendedEnum):
+    Active = 1
+    Inactive = 0

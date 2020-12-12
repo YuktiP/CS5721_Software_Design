@@ -8,11 +8,10 @@ import os
 import urllib.request
 from models.UserAuthentication import User
 from models.card import Creditcard
-from models.account import Account
+from models.Account import Account
 from models.CustomerApplication import CustomerApplication
 import datetime
 from datetime import date
-from passgen import Randpass
 from app import db
 import app
 import forms
@@ -23,8 +22,9 @@ class EmployeeDashboard(IDashboard):
         self=self
 
     def GetDashboardData(self):
-        result=db.session.query(CustomerApplication).filter(CustomerApplication.application_type =='O').all()
-        db.session.query(CustomerApplication).filter(CustomerApplication.application_type =='O').update({CustomerApplication.application_type:'A'},synchronize_session=False)
+        app_type = 'O'
+        result=db.session.query(CustomerApplication).filter(CustomerApplication.application_type ==app_type).all()
+        db.session.query(CustomerApplication).filter(CustomerApplication.application_type ==app_type).update({CustomerApplication.application_type:'A'},synchronize_session=False)
         self.dashboardName = "Display a List of Customers to be onboarded"
         print(result)
         self.template = "upload.html"

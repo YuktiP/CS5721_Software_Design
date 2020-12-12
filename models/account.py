@@ -5,19 +5,25 @@ class Account(db.Model):
     userId=db.Column(db.Integer)
     cardNumber=db.Column(db.BigInteger)
     createdDate=db.Column(db.Date)
-    currentcreditLimit=db.Column(db.Integer)
-    availablecreditLimit=db.Column(db.Integer)
+    currentBalance=db.Column(db.Integer)
+    availableBalance=db.Column(db.Integer)
+    minPaymentDue = db.Column(db.Integer)
+    totalPaymentDue = db.Column(db.Integer)
     status=db.Column(db.String(10))
-       
 
-    def __init__(self,accountNumber,userId,cardNumber,createdDate,currentcreditLimit,availablecreditLimit,status):
+    def __init__(self,accountNumber = None, userId=None,user=None, cardNumber=None,card=None,createdDate=None,currentBalance=None,availableBalance=None,status=None,minPaymentDue=None,totalPaymentDue=None):
         self.accountNumber=accountNumber
         self.userId=userId
+        self.user = user
         self.cardNumber=cardNumber
+        self.card = card
         self.createdDate=createdDate
-        self.currentcreditLimit=currentcreditLimit
-        self.availablecreditLimit=availablecreditLimit
+        self.currentBalance=currentBalance
+        self.availableBalance=availableBalance
+        self.minPaymentDue=minPaymentDue
+        self.totalPaymentDue=totalPaymentDue
         self.status=status
+
     def addAccount(self):
             db.create_all()
             db.session.add(self)

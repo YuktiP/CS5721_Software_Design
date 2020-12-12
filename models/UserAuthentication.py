@@ -17,7 +17,7 @@ class User(UserMixin,db.Model):
     occupation=db.Column(db.String(200))
     monthlyIncome=db.Column(db.Integer)
 
-    def __init__(self,userId,accountNumber,userName,password,firstName,lastName,Role,dob,email,address,city,pin,occupation,monthlyIncome):
+    def __init__(self,userId=None,accountNumber=None,userName=None,password=None,firstName=None,lastName=None,Role=None,dob=None,email=None,address=None,city=None,pin=None,occupation=None,monthlyIncome=None):
         self.userId =userId
         self.accountNumber = accountNumber
         self.userName = userName
@@ -40,6 +40,9 @@ class User(UserMixin,db.Model):
 
     def get_id(self):
            return (self.userId)
+
+    def getUserRole(self):
+           return (self.Role)
 
     def checkPassword(self, password):
         return check_password_hash(self.password, password)
