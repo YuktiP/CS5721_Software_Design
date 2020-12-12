@@ -1,0 +1,48 @@
+<h1 class='center'>
+    Admin Dashboard
+</h1>
+</br>
+</br>
+
+
+<style>
+    .center {
+     text-align: center
+    }
+</style>
+<h3>
+    Requests to Unblock Card
+</h3>
+
+<style>
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+</style>
+
+<table>
+<form action="/Dashboard/Admin/Unblock" method="POST">
+<tr>
+    <th>Sr. No</th>
+    <th>Card Number</th>
+    <th>Unblock?</th>
+</tr>
+<tbody>
+{% for app in data3.cardToUnblockList %}
+<tr>
+    <td>{{loop.index}}</td>
+    <td>{{app[0]}}</td>
+    <td><button class="btn btn-danger" type="submit" name="add" value="{{app[0]}}">UNBLOCK</button></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</form>
+{% if not data3.cardToUnblockList %}
+    <p>No cards to unblock</p>
+{%endif %}

@@ -16,7 +16,7 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and user.checkPassword(password=form.password.data):
             login_user(user)
-            return redirect("/Dashboard")
+            return redirect("/pinChange")
         if not user:
             return '<h1>User not found!!</h1>'
     return(render_template('login.html',form=form))

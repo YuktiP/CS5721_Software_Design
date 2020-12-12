@@ -35,7 +35,8 @@ from defineRoutes.routeCustomerApplication import *
 from defineRoutes.routeEnterTxn import *
 from defineRoutes.routeUserAuthentication import *
 from defineRoutes.routeDashboard import *
-from defineRoutes.routeBatch import *
+#from defineRoutes.routeBatch import *
+from defineRoutes.routePinChange import *
 
 if __name__ == "__main__":
     app.run(debug=True)

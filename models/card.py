@@ -1,11 +1,15 @@
 from app import db
-class Creditcard(db.Model):
+
+
+class Card(db.Model):
     cardId=db.Column(db.BigInteger,primary_key=True)
     cardNumber=db.Column(db.BigInteger)
+    currentCreditLimit=db.Column(db.Integer)
+    availableCreditLimit=db.Column(db.Integer)
     pin=db.Column(db.Integer)
     cardCode=db.Column(db.Integer)
     expiryDate=db.Column(db.Date)
-    status=db.Column(db.Integer)
+    cardStatus=db.Column(db.Integer)
     cardType=db.Column(db.String(20))
     creditLimit=db.Column(db.Integer)
     interest=db.Column(db.Integer)
@@ -24,4 +28,4 @@ class Creditcard(db.Model):
     def addCard(self):
             db.create_all()
             db.session.add(self)
-            db.session.commit()    
+            db.session.commit()   
