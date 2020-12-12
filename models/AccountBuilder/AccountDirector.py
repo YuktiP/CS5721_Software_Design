@@ -1,6 +1,7 @@
 from models.Account import Account
 import datetime
 from helper.randGenerator import Randpass
+from enums.Enums import *
 
 class AccountDirector:
    
@@ -8,6 +9,7 @@ class AccountDirector:
         self.builder = builder
    
    def getAccount(self, customerApplication):
+        randomVar=Randpass()
         account = Account()
         #User
         user = self.builder.getUser(customerApplication)

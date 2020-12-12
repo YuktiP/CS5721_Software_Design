@@ -26,8 +26,6 @@ class UserAuthorization(iauth.IAuthorization):
                 module = db.session.query(Modules).filter(Modules.moduleId == m.moduleId).first()
                 if module.moduleName == self.requestedUrl:
                      moduleUrl = module.moduleName
-                else:
-                    moduleUrl = None
         
         if not moduleUrl:
             return Result(isSuccess=False, text="User not Authorized")

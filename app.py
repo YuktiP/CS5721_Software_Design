@@ -13,7 +13,7 @@ MYSQL_HOST = dbase['mysql_host']
 MYSQL_USER = dbase['mysql_user']
 MYSQL_PASSWORD = dbase['mysql_password']
 MYSQL_DB = dbase['mysql_db']
-UPLOAD_FOLDER='C:/uploads'
+UPLOAD_FOLDER='/Users/yuktipatil/MySpace'
 #Using SQL Alchemy [ORM]
 app.config['SECRET_KEY']='SECURITY_KEY'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

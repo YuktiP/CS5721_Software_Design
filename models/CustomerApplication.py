@@ -7,7 +7,7 @@ class CustomerApplication(db.Model):
     dateOfBirth=db.Column(db.Date)
     address=db.Column(db.String(30))
     city=db.Column(db.String(30))
-    pin=db.Column(db.String(10))
+    zipcode=db.Column(db.String(10))
     monthly_income=db.Column(db.Integer)
     cardType=db.Column(db.String(20))
     application_type=db.Column(db.String(1))
@@ -17,7 +17,7 @@ class CustomerApplication(db.Model):
     ppsn=db.column(db.Integer)
     email=db.Column(db.String(30))
 
-    def __init__(self,firstName, lastName, dateOfBirth,address,city,pin, monthly_income,cardType, occupation, ppsn,email, contact_number,application_type,  eligibility,error_details):
+    def __init__(self,firstName, lastName, dateOfBirth,address,city,zipcode, monthly_income,cardType, occupation, ppsn,email, contact_number,application_type,  eligibility,error_details):
         self.firstName = firstName
         self.lastName = lastName
         self.dateOfBirth = dateOfBirth
@@ -30,7 +30,7 @@ class CustomerApplication(db.Model):
         self.contact_number=contact_number
         self.ppsn = ppsn
         self.city=city
-        self.pin=pin
+        self.zipcode=zipcode
         self.cardType=cardType
         self.email=email
         

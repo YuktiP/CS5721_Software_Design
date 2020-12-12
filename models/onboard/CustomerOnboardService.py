@@ -1,5 +1,8 @@
 from models.Result import Result
 from models.AccountBuilder import AccountBuilder as ab,AccountDirector as ad
+from dbController.CardDBController import CardDBController
+from dbController.UserDBController import UserDBController
+from dbController.AccountDBController import AccountDBController
 
 class CustomerOnBoardService():
 
@@ -13,10 +16,13 @@ class CustomerOnBoardService():
             accountDirector.setBuilder(accountBuilder)
             account = accountDirector.getAccount(application)
             
-            card = account.card
-            card.addCard()
-            user = account.user
-            user.addUser()
-            account.addAccount()
+            cardDB = CardDBController()
+            cardDB.addCard(account.card)
+            
+            userDB = UserDBController()
+            userDB.addUser(account.user)
 
-            return Result(isSuccess=true,text="Customer Onboarded Successfully")
+            accountDB = AccountDBController()
+            accountDB.addAccount(account)
+
+            return Result(isSuccess=True,text="Customer Onboarded Successfully", data = account.user)

@@ -13,11 +13,11 @@ class User(UserMixin,db.Model):
     email=db.Column(db.String(200))
     address=db.Column(db.String(200))
     city=db.Column(db.String(200))
-    pin=db.Column(db.Integer)
+    zipcode=db.Column(db.Integer)
     occupation=db.Column(db.String(200))
     monthlyIncome=db.Column(db.Integer)
 
-    def __init__(self,userId=None,accountNumber=None,userName=None,password=None,firstName=None,lastName=None,Role=None,dob=None,email=None,address=None,city=None,pin=None,occupation=None,monthlyIncome=None):
+    def __init__(self,userId=None,accountNumber=None,userName=None,password=None,firstName=None,lastName=None,Role=None,dob=None,email=None,address=None,city=None,zipcode=None,occupation=None,monthlyIncome=None):
         self.userId =userId
         self.accountNumber = accountNumber
         self.userName = userName
@@ -29,7 +29,7 @@ class User(UserMixin,db.Model):
         self.email=email
         self.address=address
         self.city=city
-        self.pin=pin
+        self.zipcode=zipcode
         self.occupation=occupation
         self.monthlyIncome=monthlyIncome
         

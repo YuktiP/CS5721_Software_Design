@@ -1,5 +1,6 @@
 from models.onboard.CustomerOnboardService import CustomerOnBoardService
 import pandas as pd 
+from dbController.UserDBController import UserDBController
 
 class CustomerOnBoardBatchService():
 
@@ -8,9 +9,10 @@ class CustomerOnBoardBatchService():
 
     def onBoardCustomerBatch(self,docpath):
         data=pd.read_csv(docpath)
-        df =pd.DataFrame(data, columns= ['firstName','lastName','dob','email','address','city','zipcode','occupation','monthlyIncome','cardType'])
+        df =pd.DataFrame(data, columns= ['firstName','lastName','dateOfBirth','email','address','city','pin','occupation','monthly_income','cardType','contact_number','ppsn'])
+        usersOnboarded = []
         for application in df.itertuples():
             onboardService = CustomerOnBoardService()
-            onboardService.onBoardCustomer(application)
-        self.result=db.session.query(User).all()
-        return self
+            result = onboardService.onBoardCustomer(application)
+            usersOnboarded.append(result.data)
+        return usersOnboarded
