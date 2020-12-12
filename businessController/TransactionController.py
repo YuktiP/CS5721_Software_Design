@@ -1,9 +1,9 @@
 from app import app,db
 from flask import render_template,redirect,url_for,flash,request
 from models.Transactions import Transaction
-from models.card import Creditcard
+from models.card import CreditCard
 from datetime import datetime
-from passgen import Randpass
+from helper.randGenerator import Randpass
 from dbController.TransactionDBController import TransactionDBController
 from models.Transactions import Transaction
 import forms

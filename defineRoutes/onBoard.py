@@ -92,3 +92,5 @@ class Onboard():
             a.availableBalance=c.creditLimit
             a.status=Status(Status.Active).value
             a.addAccount()
+
+            return "Success"

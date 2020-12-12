@@ -1,8 +1,7 @@
 from app import app,db
 from flask import render_template,redirect,url_for,flash,request
 from models.Transactions import Transaction
-from models.account import Account
-from models.card import Creditcard
+from models.Account import Account
 from datetime import datetime
 from businessController.TransactionController import TransactionController
 import forms

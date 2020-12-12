@@ -1,7 +1,5 @@
 from app import db
-
-
-class Card(db.Model):
+class CreditCard(db.Model):
     cardId=db.Column(db.BigInteger,primary_key=True)
     cardNumber=db.Column(db.BigInteger)
     currentCreditLimit=db.Column(db.Integer)
