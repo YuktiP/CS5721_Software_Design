@@ -13,7 +13,7 @@ MYSQL_HOST = dbase['mysql_host']
 MYSQL_USER = dbase['mysql_user']
 MYSQL_PASSWORD = dbase['mysql_password']
 MYSQL_DB = dbase['mysql_db']
-UPLOAD_FOLDER='C:/uploads'
+UPLOAD_FOLDER='/Users/yuktipatil/MySpace'
 #Using SQL Alchemy [ORM]
 app.config['SECRET_KEY']='SECURITY_KEY'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -35,9 +35,10 @@ from defineRoutes.routeCustomerApplication import *
 from defineRoutes.routeEnterTxn import *
 from defineRoutes.routeUserAuthentication import *
 from defineRoutes.routeDashboard import *
-#from defineRoutes.routeBatch import *
+from defineRoutes.routeCustomerDashboard import *
 from defineRoutes.routePinChange import *
 from defineRoutes.routeAdminDashboard import *
+from defineRoutes.routeEmployeeDashboard import *
 from defineRoutes.routeBatch import *
 
 if __name__ == "__main__":

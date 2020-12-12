@@ -10,3 +10,6 @@ class TransactionDBController():
         db.create_all()
         db.session.add(Transaction)
         db.session.commit()                 
+
+    def getTransactoinsByCardNumber(self, cardNumber):
+       return  db.session.query(Transaction).filter(Transaction.cardNumber == cardNumber).all()

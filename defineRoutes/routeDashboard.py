@@ -9,7 +9,6 @@ import csv
 import pandas as pd 
 from flask import render_template,redirect,request,url_for
 from models.card import CreditCard
-from models.Account import Account
 from models import UserAuthorization as auth
 from defineRoutes.onBoard import Onboard
 import datetime
@@ -26,29 +25,3 @@ def Dashboard():
     dash = DashboardController()
     data = dash.createDashboard(None)
     return redirect(data) #(render_template(data.template,data = data))
-
-@app.route('/EmployeeDashboard', methods=['POST','GET'])
-def EmployeeDashboard():   
-    if request.method=='POST':
-        file = request.files['file']
-        filename = secure_filename(file.filename)
-        x=os.path.join(app.config['UPLOAD_FOLDER'],filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        add=Onboard()
-        data=add.BulkOnboard(x)
-        flash('File successfully uploaded')
-        return(render_template('Display.html',data=data.result))
-    return(render_template('OnBoardCustomers.html'))
-
-@app.route('/singleUpload',methods=['POST','GET'])
-def singleUpload():
-    f=DashboardFactory()
-    fobj=f.getDashboard("employee")
-    data=fobj.GetDashboardData()
-    if request.method=='POST':
-            id = request.args.get('id')
-            add=Onboard()
-            flash('Onboarded Sucessfully')
-            add.singleOnboard(id)
-            flash('Onboarded Sucessfully')
-    return(render_template(data.template,data=data))

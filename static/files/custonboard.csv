@@ -1,4 +1,4 @@
-firstName,lastName,dob,email,address,city,zipcode,occupation,monthlyIncome,cardType
-RAHUL,HISRIA,2000-05-12,rh@gmail.com,willsmeath,LIMERICK,V97894,CONSULTANT,2000,PLATINUM
-MANAV,DOSHI,1995-09-23,doshibhel@gmail.com,durban,MAYO,V869695,DOCTOR,9000,GOLD
-TANU,DAS,1998-09-12,tdasara@outlook.com,macylou,GALWAY,V234566,SURGREON,800,STUDENT
+firstName,lastName,dateOfBirth,email,address,city,zipcode,occupation,monthly_income,cardType,contact_number,ppsn
+RAHUL,HISRIA,2000-05-12,rh@gmail.com,willsmeath,LIMERICK,V97894,CONSULTANT,2000,Basic,894122324,01234567
+MANAV,DOSHI,1995-09-23,doshibhel@gmail.com,durban,MAYO,V869695,DOCTOR,9000,Black,894122324,02233445
+TANU,DAS,1998-09-12,tdasara@outlook.com,macylou,GALWAY,V234566,SURGREON,800,Student,894122324,0113344558
