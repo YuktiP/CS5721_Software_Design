@@ -5,8 +5,8 @@ from enums.Enums import *
 
 class AdminDashboard(IDashboard):
 
-    def __init__(self):
-        self = self
+    def __init__(self, template=None):
+        self.template = template
     
     def getDashboardData(self, requestPage):
 

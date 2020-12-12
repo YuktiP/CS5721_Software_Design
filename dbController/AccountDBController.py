@@ -1,8 +1,9 @@
 from models.Account import Account
 from models.UserAuthentication import User
+from app import db
+
 
 class AccountDBController():
-
     def __init__(self):
         self = self
     def addAccount(self,Account):

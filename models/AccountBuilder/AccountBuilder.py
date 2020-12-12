@@ -21,7 +21,7 @@ class AccountBuilder(abs.AbstractBuilder):
         user.email = customerApplication.email
         user.address = customerApplication.address
         user.city = customerApplication.city
-        user.pin = customerApplication.pin
+        user.zip = customerApplication.pin
         user.occupation = customerApplication.occupation
         user.monthly_income = customerApplication.monthly_income
         return user
@@ -39,7 +39,7 @@ class AccountBuilder(abs.AbstractBuilder):
             credlimit=5000
             interest=1
 
-        card = Creditcard()
+        card = CreditCard()
         card.cardNo = randomVar.cardGen() 
         card.pin = randomVar.pinGen()
         card.cardCode = randomVar.codeGen()

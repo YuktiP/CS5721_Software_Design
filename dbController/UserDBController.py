@@ -8,3 +8,6 @@ class UserDBController():
         db.create_all()
         db.session.add(User)
         db.session.commit()
+
+    def getUsers(self):
+        return db.session.query(User).all()

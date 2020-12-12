@@ -13,4 +13,4 @@ class TransactionDBController():
 
     def findtotalAmt(self,cardNo):
         self.result=db.session.query(Transaction).filter(Transaction.cardNumber == cardNo).all()
-        return(self.result)                     
+        return(self.result)

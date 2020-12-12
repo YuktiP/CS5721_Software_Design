@@ -17,16 +17,18 @@ import forms
 
 class EmployeeDashboard(IDashboard):
 
-    def __init__(self):
-        self=self
+    def __init__(self,template=None):
+        self.template = template
 
     def getDashboardData(self,requestedPage):
-        app_type = 'O'
-        result=db.session.query(CustomerApplication).filter(CustomerApplication.application_type ==app_type).all()
-        db.session.query(CustomerApplication).filter(CustomerApplication.application_type ==app_type).update({CustomerApplication.application_type:'A'},synchronize_session=False)
-        self.dashboardName = "Display a List of Customers to be onboarded"
-        print(result)
-        self.template = "upload.html"
-        self.applications = result
+        if requestedPage == 'singleupload':
+            app_type = 'O'
+            result=db.session.query(CustomerApplication).filter(CustomerApplication.application_type ==app_type).all()
+            db.session.query(CustomerApplication).filter(CustomerApplication.application_type ==app_type).update({CustomerApplication.application_type:'A'},synchronize_session=False)
+            self.dashboardName = "Display a List of Customers to be onboarded"
+            self.template = 'upload.html'
+            self.applications = result
+        elif requestedPage == 'bulkupload':
+            self.template = 'OnBoardCustomers.html'
         return self
 
