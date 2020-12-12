@@ -1,5 +1,6 @@
 from app import db,app
 from Interfaces.IDashboard import IDashboard
+from dbController.CardDBController import CardDBController
 
 
 class AdminDashboard(IDashboard):
@@ -7,8 +8,15 @@ class AdminDashboard(IDashboard):
     def __init__(self):
         self = self
     
-    def GetDashboardData(self):
-        self.url = '/registerbatch'
+    #def GetDashboardData(self):
+     #   self.url = '/registerbatch'
+      #  return self
+    
+    def getAdminDashboardData(self):
+        self.template = 'AdminPage.html'
+        obj = CardDBController()
+        self.cardToBlockList = obj.getBlockRequests()
+        self.cardToUnblockList = obj.getUnblockRequests()
         return self
     
     

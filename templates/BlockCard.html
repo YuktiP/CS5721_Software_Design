@@ -1,0 +1,47 @@
+<h1 class='center'>
+    Admin Dashboard
+</h1>
+</br>
+</br>
+
+<style>
+    .center {
+     text-align: center
+    }
+</style>
+<h3>
+    Requests to Block Card
+</h3>
+
+<style>
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+</style>
+
+<table>
+<form action="/Dashboard/Admin/Block" method="POST">
+<tr>
+    <th>Sr. No</th>
+    <th>Card Number</th>
+    <th>Block?</th>
+</tr>
+<tbody>
+{% for app in data2.cardToBlockList %}
+<tr>
+    <td>{{loop.index}}</td>
+    <td>{{app[0]}}</td>
+    <td><button class="btn btn-danger" type="submit" name="delete" value="{{app[0]}}">BLOCK</button></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</form>
+{% if not data2.cardToBlockList %}
+    <p>No card block requests</p>
+{%endif %}
