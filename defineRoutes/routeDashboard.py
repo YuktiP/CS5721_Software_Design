@@ -14,7 +14,7 @@ from defineRoutes.onBoard import Onboard
 import datetime
 from datetime import date
 from Interfaces import IAuthorization as Iauth
-UPLOAD_FOLDER='/Users/yuktipatil/MySpace'
+#UPLOAD_FOLDER='/Users/yuktipatil/MySpace'
 from businessController.DashboardController import DashboardController
 
 
