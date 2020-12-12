@@ -3,19 +3,19 @@ from models.BlockCard import BlockCard
 from models.UnblockCard import UnblockCard
 from businessController.BlockCardController import BlockCardController
 from businessController.UnblockCardController import UnblockCardController
+from businessController.DashboardController import DashboardController
 from app import app
 from flask import render_template,redirect,url_for,request
 import forms
 
-# @app.route("/Dashboard/Admin")
-# def Dashboard():
-#     df = DashboardFactory()
-#     dashObj = df.getDashboard("/Dashboard/Admin") #Employee/Customer/Admin
-#     data = dashObj.getDashboardData()
+ @app.route("/ShowRequests")
+ def Dashboard():
+     dc = DashboardController()
+     data = dc.createDashboard('registerbatch')
 
-#     return(render_template(data.template,data = data))
+     return(render_template(data.template,data = data))
 
-@app.route("/Dashboard/Admin/Block", methods=['POST','GET'])
+@app.route("/Block", methods=['POST','GET'])
 def blockCard():
     df = BlockCard()
     data2 = df.actionOnCustomerCardList()
@@ -28,7 +28,7 @@ def blockCard():
 
     return (render_template('BlockCard.html', data2 = data2))
  
-@app.route("/Dashboard/Admin/Unblock", methods=['POST','GET']) 
+@app.route("/Unblock", methods=['POST','GET']) 
 def unblockCard():
     df = UnblockCard()
     data3 = df.actionOnCustomerCardList()
