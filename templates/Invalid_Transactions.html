@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>INVALID REJECTS</title>
+        <style>
+            table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+          }
+          th, td {
+          padding: 15px;
+          text-align: left;
+          }
+          </style>
+    </head>
+    <p><b>INVALID TRANSACTION ENTRY ALERT</b></p>
+    {% block main %}
+    <table>
+    <tbody>
+        <tr>
+          <td>CARD NUMBER</td>
+          <td>{{form.cardNumber}}</td>
+        </tr>
+        <tr> 
+          <td>DEBIT/CREDIT TRANSACTION TYPE</td>
+          <td>{{form.transactionType}}</td>
+        </tr> 
+        <tr>
+          <td>TRANSACTION SOURCE</td>
+          <td>{{form.transactionSource}}</td>
+        </tr>  
+        <tr>
+          <td>TIMESTAMP</td>
+          <td>{{form.timestamp}}</td>
+        </tr>  
+        <tr>
+          <td>AMOUNT</td>
+          <td>{{form.amount}}</td>
+        </tr>
+        <tr>
+          <td>ACTION</td>
+          <td><b>REJECTED</b></td>
+        </tr>   
+      </tbody>
+    </table>
+      {% endblock %}
+</html>
