@@ -1,5 +1,6 @@
 from models.Result import Result
 from models.AccountBuilder import AccountBuilder as ab,AccountDirector as ad
+from models.Card import CreditCard
 
 class CustomerOnBoardService():
 

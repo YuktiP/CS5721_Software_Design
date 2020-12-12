@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from app import db
 from models.UserAuthentication import User
-from models.card import Creditcard
+from models.card import CreditCard
 from models.Transactions import Transaction
 
 
