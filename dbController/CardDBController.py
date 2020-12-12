@@ -23,7 +23,7 @@ class CardDBController():
         db.session.query(CreditCard).filter(CreditCard.cardNumber == cardNumber).update({CreditCard.blockRequest:0})
         db.session.commit()
 
-    def addCard(self,Creditcard):
+    def addCard(self,CreditCard):
         db.create_all()
         db.session.add(CreditCard)
         db.session.commit()
