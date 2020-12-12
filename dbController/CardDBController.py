@@ -1,6 +1,6 @@
-from models.card import Creditcard
+from models.card import CreditCard
 from app import db
-class cardDBController():
+class CardDBController():
     def __init__(self):
         self = self
 

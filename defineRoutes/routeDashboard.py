@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 import csv
 import pandas as pd 
 from flask import render_template,redirect,request,url_for
-from models.card import Creditcard
+from models.card import CreditCard
 from models.Account import Account
 from models import UserAuthorization as auth
 from defineRoutes.onBoard import Onboard

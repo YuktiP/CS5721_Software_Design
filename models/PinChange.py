@@ -1,7 +1,7 @@
 from app import db
 from models.UserAuthentication import User
-from models.card import Creditcard
-from models.account import Account
+from models.card import CreditCard
+from models.Account import Account
 
 class PinChange():
     def __init__(self, userId):

@@ -1,5 +1,5 @@
-from dbController.CardDBController import cardDBController
+from dbController.CardDBController import CardDBController
 
 class CardController():
-    CardDBObj=cardDBController()
+    CardDBObj=CardDBController()
     CardDBObj.addCard(Creditcard)
