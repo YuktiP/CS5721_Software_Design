@@ -1,12 +1,24 @@
-from app import app
+from app import app,db
 from flask import render_template,redirect,url_for,flash,request
 from models.Transactions import Transaction
+from models.account import Account
+from models.card import Creditcard
+from datetime import datetime
+from businessController.TransactionController import TransactionController
 import forms
-@app.route("/Enter_Transaction",methods=['POST','GET'])
+
+@app.route("/EnterTransaction",methods=['POST','GET'])
 def Enter_Transaction():
+    stat_checker=0
     form=forms.EnterTransactionForm()
     if form.validate_on_submit():
-        txn=Transaction(cardNumber=form.cardNumber.data,transactionType=form.transactionType.data,transactionSource=form.transactionSource.data,timestamp=form.timestamp.data,amount=form.amount.data)
-        txn.addTransaction()
-        return redirect(url_for('Enter_Transaction'))
+        TransacObj=TransactionController()
+        sucess_status=TransacObj.Validate(form)
+        if sucess_status==1:
+            return redirect(url_for('EnterTransaction'))  
+        else:
+            return render_template('Invalid_Transactions.html',form=form)
+            print("invalid card")
+            flash("Transaction Rejected !")  
     return(render_template('Enter_Txn.html',form=form))  
+            
