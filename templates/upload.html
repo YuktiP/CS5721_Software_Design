@@ -1,4 +1,11 @@
 <!doctype html>
+<head>
+  <script>
+    function myfunc() {
+      alert("Customers onboarded Sucessfully");
+    }
+    </script>
+</head>
 <style>
   table, th, td {
 border: 1px solid black;
@@ -9,7 +16,10 @@ padding: 15px;
 text-align: left;
 }
 </style>
+<h2>WELCOME EMPLOYEE </h2><a href="/">LOGOUT</a>
 <h4>List of Customers pending for onboarding</h4>
+
+<p></p>
 <table>
   <tr>
       <th>FIRST NAME</th>
@@ -27,16 +37,20 @@ text-align: left;
       <td>{{app.lastName}}</td>
       <td>{{app.email}}</td>
       <td>{{app.monthly_income}}</td>
-      <td>{{app.cardType}}</td>
+      <td>{{app.card_type}}</td>
       <td>
-      <form method="POST" action="/singleUpload?id={{app.id}}">
-      <input type="submit" value="OnBoard" name="onboard">
+      <form method="POST" action="/EmployeeDashboard">
+      <input type="submit" value="onboard" name="onboard" onclick="myfunc()">
       </form>
       </td>
   </tr>
   {% endfor %}
-</tbody>
+ </tbody>
 </table>
+<footer> <a href="/BulkUpload"><b>BULK ONBOARD</b></a></footer>
+
+
+
   
   
   
