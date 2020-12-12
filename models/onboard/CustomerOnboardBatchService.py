@@ -1,6 +1,7 @@
 from models.onboard.CustomerOnboardService import CustomerOnBoardService
 import pandas as pd 
 from dbController.UserDBController import UserDBController
+from models.Result import Result
 
 class CustomerOnBoardBatchService():
 
@@ -15,4 +16,4 @@ class CustomerOnBoardBatchService():
             onboardService = CustomerOnBoardService()
             result = onboardService.onBoardCustomer(application)
             usersOnboarded.append(result.data)
-        return usersOnboarded
+        return Result(isSuccess=True,text="Customer Batch Onboarded Successfully", data = usersOnboarded)

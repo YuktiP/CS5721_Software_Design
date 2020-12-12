@@ -36,8 +36,8 @@ def singleupload():
             #Get Application to be onboarded
             application = app.getApplicationById(applicationId)
             #Onboard a customer
-            status=onboard.onBoardCustomer(application)
-            if(status.isSuccess):
+            result=onboard.onBoardCustomer(application)
+            if(result.isSuccess):
                 flash(status.text)
     return(render_template(data.template,data=data))
 
@@ -46,7 +46,7 @@ def bulkupload():
     #Get Dashboard Data
     dash = DashboardController()
     data = dash.createDashboard('bulkupload')
-    
+
     if request.method=='POST':
         #read file to upload customers to be onboarded
         file = request.files['file']
@@ -56,7 +56,7 @@ def bulkupload():
         #Instantiate
         onboard = CustomerOnBoardBatchService()
         #Onboard customer batch
-        custData=onboard.onBoardCustomerBatch(docpath)
-        flash('File successfully uploaded')
-        return(render_template('Display.html',data=custData))
+        result=onboard.onBoardCustomerBatch(docpath)
+        flash(result.text)
+        return(render_template('Display.html',data=result.data))
     return(render_template(data.template))    
