@@ -38,6 +38,7 @@ from defineRoutes.routeDashboard import *
 #from defineRoutes.routeBatch import *
 from defineRoutes.routePinChange import *
 from defineRoutes.routeAdminDashboard import *
+from defineRoutes.routeBatch import *
 
 if __name__ == "__main__":
     app.run(debug=True)

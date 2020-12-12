@@ -11,6 +11,7 @@ class CreditCard(db.Model):
     cardType=db.Column(db.String(20))
     creditLimit=db.Column(db.Integer)
     interest=db.Column(db.Integer)
+    blockRequest = db.Column(db.Boolean)
     
     def __init__(self,cardNumber=None,pin=None,cardCode=None,expiryDate=None,status=None,cardType=None,creditLimit=None,interest=None):
         self.cardNumber=cardNumber

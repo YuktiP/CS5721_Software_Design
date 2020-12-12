@@ -2,7 +2,7 @@ from app import db
 
 class RolesPermission(db.Model):
     permissionId=db.Column(db.Integer,primary_key=True)
-    moduleId=db.Column(db.Integer)
+    moduleId=db.Column(db.Integer,foreign_key='module.moduleId')
     roleId=db.Column(db.Integer)
 
     def __init__(self,roleId,moduleId):

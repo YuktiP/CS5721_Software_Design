@@ -15,23 +15,17 @@ from defineRoutes.onBoard import Onboard
 import datetime
 from datetime import date
 from Interfaces import IAuthorization as Iauth
-UPLOAD_FOLDER='C:/uploads'
+UPLOAD_FOLDER='/Users/yuktipatil/MySpace'
+from businessController.DashboardController import DashboardController
 
 
 
 @app.route("/Dashboard")
 def Dashboard():
-    authorize = auth.UserAuthorization(request.args.get('page'))
-    authorize.Authorize()
-    df = DashboardFactory()
-    dashObj = df.getDashboard("admin") #Employee/Customer/Admin
-    data = dashObj.GetDashboardData()
-    user = current_user
-    return redirect(data.url) #(render_template(data.template,data = data))
 
-
-
-
+    dash = DashboardController()
+    data = dash.createDashboard(None)
+    return redirect(data) #(render_template(data.template,data = data))
 
 @app.route('/EmployeeDashboard', methods=['POST','GET'])
 def EmployeeDashboard():   

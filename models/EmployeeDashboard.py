@@ -7,7 +7,7 @@ import pandas as pd
 import os
 import urllib.request
 from models.UserAuthentication import User
-from models.card import Creditcard
+from models.card import CreditCard
 from models.Account import Account
 from models.CustomerApplication import CustomerApplication
 import datetime

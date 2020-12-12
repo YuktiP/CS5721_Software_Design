@@ -8,14 +8,15 @@ from werkzeug.utils import secure_filename
 import csv
 import pandas as pd 
 from flask import render_template,redirect,request,url_for
-from models.card import Creditcard
-from models.account import Account
+
 from models.UserAuthentication import User
 from defineRoutes.onBoard import Onboard
 import datetime
 from datetime import date
-from passgen import Randpass
-UPLOAD_FOLDER='C:/uploads'
+from models.onboard.CustomerOnboardService import CustomerOnboardService 
+from models.onboard.CustomerOnboardBatchService import CustomerOnBoardBatchService
+
+UPLOAD_FOLDER='/Users/yuktipatil/MySpace'
 
 
 @app.route('/EmployeeDashboard', methods=['POST','GET'])
@@ -23,10 +24,11 @@ def EmployeeDashboard():
     if request.method=='POST':
         file = request.files['file']
         filename = secure_filename(file.filename)
-        x=os.path.join(app.config['UPLOAD_FOLDER'],filename)
+        docpath=os.path.join(app.config['UPLOAD_FOLDER'],filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        add=Onboard()
-        data=add.BulkOnboard(x)
+        
+        onboard = CustomerOnBoardBatchService()
+        data=onboard.onBoardCustomerBatch(docpath)
         flash('File successfully uploaded')
         return(render_template('Display.html',data=data.result))
     return(render_template('OnBoardCustomers.html'))
@@ -36,10 +38,14 @@ def singleUpload():
     f=DashboardFactory()
     fobj=f.getDashboard("employee")
     data=fobj.GetDashboardData()
+
     if request.method=='POST':
         if request.form.get('onboard'):
-            add=Onboard()
-            status=add.singleOnboard(data.applications)
-            if(status=='Sucess'):
-                flash('Onboarded Sucessfully')
+            applicationId = request.args.get('id')
+            onboard=CustomerOnBoardService()
+            application = db.session.query(CustomerApplication).filter(CustomerApplication.id == applicationId).first()
+            
+            status=onboard.onBoardCustomer(application)
+            if(status.isSuccess):
+                flash(status.text)
     return(render_template(data.template,data=data))
