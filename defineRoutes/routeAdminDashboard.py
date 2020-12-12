@@ -7,13 +7,13 @@ from app import app
 from flask import render_template,redirect,url_for,request
 import forms
 
-@app.route("/Dashboard/Admin")
-def Dashboard():
-    df = DashboardFactory()
-    dashObj = df.getDashboard("/Dashboard/Admin") #Employee/Customer/Admin
-    data = dashObj.getAdminDashboardData()
+# @app.route("/Dashboard/Admin")
+# def Dashboard():
+#     df = DashboardFactory()
+#     dashObj = df.getDashboard("/Dashboard/Admin") #Employee/Customer/Admin
+#     data = dashObj.getDashboardData()
 
-    return(render_template(data.template,data = data))
+#     return(render_template(data.template,data = data))
 
 @app.route("/Dashboard/Admin/Block", methods=['POST','GET'])
 def blockCard():

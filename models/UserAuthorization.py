@@ -2,6 +2,9 @@
 from Interfaces import IAuthorization as iauth
 from app import current_user, db
 from models.RolesPermission import RolesPermission
+from models.Modules import Modules
+from enums.Enums import *
+from models.Result import Result
 
 class UserAuthorization(iauth.IAuthorization):
 
@@ -9,11 +12,27 @@ class UserAuthorization(iauth.IAuthorization):
         self.requestedUrl = requestedUrl
     
     def Authorize(self):
-
-        db.create_all()
-        userRole=current_user.getUserRole()
-        modules = db.session.query(RolesPermission).all()
-        return ""
+        userRole = current_user.getUserRole()
+        modulesforRole = db.session.query(RolesPermission).filter(RolesPermission.roleId == userRole).all()
+        
+        moduleUrl = None
+        if not self.requestedUrl:
+            for m in modulesforRole:
+                module = db.session.query(Modules).filter(Modules.moduleId == m.moduleId).first()
+                if module.isDefault:
+                     moduleUrl = module.moduleName
+        else:
+            for m in modulesforRole:
+                module = db.session.query(Modules).filter(Modules.moduleId == m.moduleId).first()
+                if module.moduleName == self.requestedUrl:
+                     moduleUrl = module.moduleName
+                else:
+                    moduleUrl = None
+        
+        if not moduleUrl:
+            return Result(isSuccess=False, text="User not Authorized")
+        Url = Role(int(userRole)).name + '/' + moduleUrl
+        return Result(isSuccess = True, text = Url)
 
 
 

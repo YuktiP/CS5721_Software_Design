@@ -1,24 +1,32 @@
 from app import db,app
 from Interfaces.IDashboard import IDashboard
 from dbController.CardDBController import CardDBController
-
+from enums.Enums import *
 
 class AdminDashboard(IDashboard):
 
     def __init__(self):
         self = self
     
-    #def GetDashboardData(self):
-     #   self.url = '/registerbatch'
-      #  return self
-    
-    def getAdminDashboardData(self):
+    def getDashboardData(self, requestPage):
+
+        if requestPage == "registerbatch":
+            return self.dataForBatch()
+
         self.template = 'AdminPage.html'
         obj = CardDBController()
         self.cardToBlockList = obj.getBlockRequests()
         self.cardToUnblockList = obj.getUnblockRequests()
         return self
     
+    def dataForBatch(self):
+        self.batchTypes = BatchType.list()
+        self.batchProcessTypes = BatchProcessType.list()
+        self.template = "ScheduleBatchProcess.html"
+        return self
+
+    
+
     
     #remove them in the last
     #def blockCard(self, cardNumber):

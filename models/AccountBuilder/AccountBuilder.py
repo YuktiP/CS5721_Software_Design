@@ -6,9 +6,7 @@ from enums.Enums import *
 from werkzeug.security import generate_password_hash
 
 class AccountBuilder(abs.AbstractBuilder):
-    '''Concrete Builder: inherits the Abstract Builder and implements 
-    the above interface createNewCar of the Abstract Builder class for a car object i.e. to say that
-       its object is capable of creating a car by calling createNewCar() of AbstractBuilder; provides methods to create components of the product.'''
+    
     def getUser(self,customerApplication):
         randomVar=Randpass()
         user = User()

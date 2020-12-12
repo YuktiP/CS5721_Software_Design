@@ -1,10 +1,11 @@
+<<<<<<< HEAD
 from app import app
 from flask import render_template, request, redirect, flash, url_for
 from flask_login import current_user
 from businessController.BlockCardRequestController import BlockCardRequest
 
 
-@app.route('/User', methods=['POST','GET'])
+@app.route('/customerdashboard', methods = ['GET'])
 def UserDashboard(): 
     if request.method =='POST':
         if "viewstatement" in request.form:

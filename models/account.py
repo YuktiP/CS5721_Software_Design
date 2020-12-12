@@ -1,4 +1,6 @@
 from app import db
+from dbController.AccountDBController import AccountDBController
+
 class Account(db.Model):
     accountId=db.Column(db.Integer,primary_key=True)
     accountNumber=db.Column(db.BigInteger,unique=True)
@@ -25,6 +27,5 @@ class Account(db.Model):
         self.status=status
 
     def addAccount(self):
-            db.create_all()
-            db.session.add(self)
-            db.session.commit()
+            accountDb = AccountDBController()
+            accountDb.addAccount(self)

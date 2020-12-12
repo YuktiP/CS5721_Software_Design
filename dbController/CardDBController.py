@@ -1,6 +1,6 @@
 from app import db
-from models.card import Creditcard
 
+from models.card import Creditcard
 
 class CardDBController():
     def __init__(self):
@@ -23,9 +23,9 @@ class CardDBController():
         db.session.query(Creditcard).filter(Creditcard.cardNumber == cardNumber).update({Creditcard.blockRequest:0})
         db.session.commit()
 
-    def addCard(self,Creditcard):
+    def addCard(self,CreditCard):
         db.create_all()
-        db.session.add(Card)
+        db.session.add(CreditCard)
         db.session.commit()
 
     def getCardById(self, cardId):
