@@ -32,3 +32,8 @@ class Role(ExtendedEnum):
 class Status(ExtendedEnum):
     Active = 1
     Inactive = 0
+
+class CardType(ExtendedEnum):
+    Basic = 1
+    Black = 2
+    Student = 3

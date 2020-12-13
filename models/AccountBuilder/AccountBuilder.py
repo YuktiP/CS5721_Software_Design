@@ -4,6 +4,7 @@ from models.Card import CreditCard
 from helper.randGenerator import Randpass
 from enums.Enums import *
 from werkzeug.security import generate_password_hash
+from models.Decorator.CardDecoratorService import CardDecoratorService
 
 class AccountBuilder(abs.AbstractBuilder):
     
@@ -29,16 +30,6 @@ class AccountBuilder(abs.AbstractBuilder):
     def getCard(self,customerApplication):
         randomVar=Randpass()
 
-        if customerApplication.cardType=='Black':
-            credlimit=10000
-            interest = 1.2
-        elif customerApplication.cardType=='Basic':
-            credlimit=8000
-            interest=2.6
-        elif customerApplication.cardType=='Student':
-            credlimit=5000
-            interest=1
-
         card = CreditCard()
         card.cardNumber = randomVar.cardGen() 
         card.pin = randomVar.pinGen()
@@ -46,10 +37,14 @@ class AccountBuilder(abs.AbstractBuilder):
         card.expiryDate = randomVar.cardExp()
         card.cardStatus = Status(Status.Active).value
         card.cardType = customerApplication.cardType
-        card.availableCreditLimit=credlimit
-        card.currentCreditLimit=credlimit
-        card.creditLimit = credlimit
-        card.interest = interest
-        return card
+
+        #Card Decorator
+        cardDecorator = CardDecoratorService()
+        decoratedCard = cardDecorator.decorateCard(customerApplication.cardType)
+        card.creditLimit = decoratedCard.creditLimit
+        card.interest = decoratedCard.interest
+        card.availableCreditLimit=card.creditLimit
+        card.currentCreditLimit=card.creditLimit
+        return card 
     
  
