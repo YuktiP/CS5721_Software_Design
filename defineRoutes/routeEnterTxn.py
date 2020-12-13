@@ -6,7 +6,7 @@ from businessController.TransactionController import TransactionController
 import forms
 
 @app.route("/EnterTransaction",methods=['POST','GET'])
-def Enter_Transaction():
+def EnterTransaction():
     stat_checker=0
     form=forms.EnterTransactionForm()
     if form.validate_on_submit():
