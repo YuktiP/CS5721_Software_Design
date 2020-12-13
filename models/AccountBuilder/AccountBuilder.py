@@ -29,13 +29,13 @@ class AccountBuilder(abs.AbstractBuilder):
     def getCard(self,customerApplication):
         randomVar=Randpass()
 
-        if customerApplication.cardType=='PLATINUM':
+        if customerApplication.cardType=='Black':
             credlimit=10000
             interest = 1.2
-        elif customerApplication.cardType=='BRONZE':
+        elif customerApplication.cardType=='Basic':
             credlimit=8000
             interest=2.6
-        else:
+        elif customerApplication.cardType=='Student':
             credlimit=5000
             interest=1
 

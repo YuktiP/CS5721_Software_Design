@@ -1,15 +1,5 @@
-<h1 class='center'>
-    Admin Dashboard
-</h1>
-</br>
-</br>
-
-
-<style>
-    .center {
-     text-align: center
-    }
-</style>
+{% extends "AdminLayout.html" %}
+{% block content %}
 <h3>
     Requests to Unblock Card
 </h3>
@@ -26,23 +16,24 @@ th, td {
 </style>
 
 <table>
-<form action="/Dashboard/Admin/Unblock" method="POST">
+<form action="/unblock" method="POST">
 <tr>
     <th>Sr. No</th>
     <th>Card Number</th>
     <th>Unblock?</th>
 </tr>
 <tbody>
-{% for app in data3.cardToUnblockList %}
+{% for app in data.cardToUnblockList %}
 <tr>
     <td>{{loop.index}}</td>
     <td>{{app[0]}}</td>
-    <td><button class="btn btn-danger" type="submit" name="add" value="{{app[0]}}">UNBLOCK</button></td>
+    <td><button class="btn btn-danger" type="submit" name="add" value="{{app[0]}}">Unblock</button></td>
 </tr>
 {% endfor %}
 </tbody>
 </table>
 </form>
-{% if not data3.cardToUnblockList %}
+{% if not data.cardToUnblockList %}
     <p>No cards to unblock</p>
 {%endif %}
+{% endblock %}

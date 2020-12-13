@@ -14,7 +14,7 @@ from defineRoutes.onBoard import Onboard
 import datetime
 from datetime import date
 from Interfaces import IAuthorization as Iauth
-#UPLOAD_FOLDER='/Users/yuktipatil/MySpace'
+
 from businessController.DashboardController import DashboardController
 
 
@@ -24,4 +24,4 @@ def Dashboard():
 
     dash = DashboardController()
     data = dash.createDashboard(None)
-    return redirect(data) #(render_template(data.template,data = data))
+    return redirect(data) 
