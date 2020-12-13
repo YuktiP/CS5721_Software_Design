@@ -6,25 +6,11 @@
     "configurations": [
         
         {
-            "name": "Python: Remote Attach",
-            "type": "python",
-            "request": "attach",
-            "connect": {
-                "host": "http://127.0.0.1:5000/",
-                "port": 5000
-            },
-            "pathMappings": [
-                {
-                    "localRoot": "${workspaceFolder}",
-                    "remoteRoot": "."
-                }
-            ]
-        },
-        {
             "name": "Python: Flask",
             "type": "python",
             "request": "launch",
             "module": "flask",
+            "port": 5002,
             "env": {
                 "FLASK_APP": "app.py",
                 "FLASK_ENV": "development",

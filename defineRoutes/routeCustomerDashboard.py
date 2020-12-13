@@ -1,17 +1,16 @@
 
-from flask import render_template
+from flask import render_template,request, redirect, flash, url_for
 from app import app,db
+from flask_login import current_user
+from businessController.BlockCardController import BlockCardController
 
 
 @app.route('/customerdashboard', methods = ['POST','GET'])
 def customerdashboard(): 
     return(render_template("CustomerPage.html"))
 
-from app import app
-from flask import render_template, request, redirect, flash, url_for
-from flask_login import current_user
-from businessController.BlockCardRequestController import BlockCardRequest
 
+'''
 
 @app.route('/customerdashboard', methods = ['GET'])
 def UserDashboard(): 
@@ -40,3 +39,4 @@ def UserDashboard():
 
     elif request.method == 'GET':
         return(render_template("CustomerPage.html"))
+'''

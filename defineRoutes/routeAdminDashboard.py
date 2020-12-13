@@ -8,12 +8,11 @@ from app import app
 from flask import render_template,redirect,url_for,request
 import forms
 
- @app.route("/ShowRequests")
- def Dashboard():
-     dc = DashboardController()
-     data = dc.createDashboard('registerbatch')
-
-     return(render_template(data.template,data = data))
+@app.route("/ShowRequests")
+def ShowRequests():
+    dc = DashboardController()
+    data = dc.createDashboard('registerbatch')
+    return(render_template(data.template,data = data))
 
 @app.route("/Block", methods=['POST','GET'])
 def blockCard():

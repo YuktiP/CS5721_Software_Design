@@ -21,7 +21,7 @@ class AccountBuilder(abs.AbstractBuilder):
         user.email = customerApplication.email
         user.address = customerApplication.address
         user.city = customerApplication.city
-        user.zip = customerApplication.pin
+        user.zipcode = customerApplication.zipcode
         user.occupation = customerApplication.occupation
         user.monthly_income = customerApplication.monthly_income
         return user
