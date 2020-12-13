@@ -25,6 +25,6 @@ class AccountDirector:
         account.availableBalance=card.creditLimit
         account.createdDate=datetime.datetime.now() 
         account.status=Status(Status.Active).value
-        account.accountNumber = randomVar.accGen()
+        account.accountNumber=user.accountNumber
         
         return account

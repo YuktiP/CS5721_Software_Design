@@ -9,7 +9,7 @@ from dbController.CardDBController import CardDBController
 
 
 class Statement():
-    def __init__(self, userId):
+    def __init__(self,userId):
         self.userId = userId
         
     '''
@@ -36,26 +36,17 @@ class Statement():
         TxnObj=TransactionDBController()
         acctno=actObj.findAccountNumber(userId)
         cardNo=actObj.getCardNumber(acctno)
+        self.cardNumber=actObj.convert(cardNo)
         actBal=actObj.getAccountBal(acctno)
+        self.actBal=actObj.convert(actBal)
         interest=cardObj.findCardInterest(cardNo)
+        print(interest)
+        intr=actObj.convertVal(interest)
         exec=TxnObj.findtotalAmt(cardNo)
         for i in exec:
             total=total+i.amount  
         self.statement=exec
-        total=total*interest
-        self.sum=total
-        for j in actBal:
-            self.avlbal=j    
+        extraIncur=(intr/100)*365
+        self.sum=total+extraIncur 
         self.template = "ViewStatement.html"
-        
-
-
-        '''
-        findAccountNumber=db.session.query(User.accountNumber).filter(User.userId==952695 ).all()
-        print(findAccountNumber)
-        findCardNo=db.session.query(Account.cardNumber).filter(Account.accountNumber ==findAccountNumber).all()
-        findCardInterest=db.session.query(CreditCard.interest).filter(CreditCard.cardNumber==findCardNo)
-        currentLimit=db.session.query(Account.currentcreditLimit).filter(Account.accountNumber ==findAccountNumber).all()
-        print(findCardNo)
-        exec = db.session.query(Transaction).filter(Transaction.cardNumber == findCardNo ).all()'''
-            
+        return(self)

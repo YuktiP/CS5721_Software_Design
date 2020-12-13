@@ -29,7 +29,7 @@ class CardDBController():
         db.session.commit()
 
     def findCardInterest(self,cardNo):
-        self.result=db.session.query(CreditCard.interest).filter(CreditCard.cardNumber==cardNo)
+        self.result=db.session.query(CreditCard.interest).filter(CreditCard.cardNumber==cardNo).all()
         return (self.result)
         
     def getCardById(self, cardId):
