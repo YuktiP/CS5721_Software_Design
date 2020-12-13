@@ -28,19 +28,40 @@
                   <td>{{form.cardNumber}}</td>
                 </tr>
                 <tr>
-                  <td>DEBIT/CREDIT TRANSACTION TYPE</td>
-                  <td>{{form.transactionType}}</td>
+                  <td>TRANSACTION TYPE</td>
+                  <td>
+                  <select name="{{form.transactionType}}">
+                    {% for transactionType in TransTypes %}
+                      <option {% if transactionType.Selected %}selected="selected"{% endif %}>{{ transactionType.Label }}</option>
+                    {% endfor %}
+                  </select>
+                  
+                  </td>
                 </tr>
                 <tr>
                   <td>TRANSACTION SOURCE</td>
-                  <td>{{form.transactionSource}}</td>
+                  <td>
+                  <select name="{{form.transactionSource}}">
+                    {% for srcType in SrcTypes %}
+                      <option {% if srcType.Selected %}selected="selected"{% endif %}>{{ srcType.Label }}</option>
+                    {% endfor %}
+                  </select></td>
+                </tr>
+                <tr>
+                  <td>CARD PIN</td>
+                  <td>{{form.cardPin}}</td>
+                </tr>
+                <tr>
+                    <td>EXPIRY DATE</td>
+                    <td>{{form.cardExpiryDate}}</td>
+                </tr>
+                <tr>
+                    <td>AMOUNT</td>
+                    <td>{{form.amount}}</td>
                 </tr>
                 <tr>
                     <td>TIMESTAMP</td>
                     <td>{{form.timestamp}}</td>
-                  </tr>
-                <td>AMOUNT</td>
-                  <td>{{form.amount}}</td>
                 </tr>
             <tr>
                 <td></td>

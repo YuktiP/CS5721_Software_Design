@@ -37,3 +37,17 @@ class CardType(ExtendedEnum):
     Basic = 1
     Black = 2
     Student = 3
+
+class TransactionType(ExtendedEnum):
+    Debit = 1
+    Credit = 2
+    Authorization = 3
+    Reversal = 4
+    InterestCalculation = 5
+
+class SourceType(ExtendedEnum):
+    POS = 1
+    ATM = 2
+    Ecommerce = 3
+    BankNetwork = 4
+    System = 5

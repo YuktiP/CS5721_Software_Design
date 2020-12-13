@@ -27,6 +27,8 @@ class EnterTransactionForm(FlaskForm):
     transactionType=StringField('transactionType')
     transactionSource=StringField('transactionSource')
     timestamp=DateTimeField('timestamp')
+    cardExpiryDate = DateTimeField('timestamp')
+    cardPin = IntegerField('cardPin')
     amount=IntegerField('amount')
     submit=SubmitField('submit')
 
