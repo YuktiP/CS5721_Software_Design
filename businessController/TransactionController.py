@@ -25,21 +25,8 @@ class TransactionController():
         transactionRequest.transactionDate = form.timestamp.data
         transactionRequest.transactionAmount = form.amount.data
 
-        #Transaction Facade Pattern
         transAuthorize = TransactionAuthorizationService()
         result = transAuthorize.authorizeTransaction(transactionRequest)
         return result
-        # stat_checker=0
-        # func_checker=0
-        # date_checker=r.datecheck(form.timestamp.data)
-        # stat_checker=db.session.query(CreditCard).filter(CreditCard.cardNumber==form.cardNumber.data).all()
-        # if len(stat_checker)==1 and date_checker ==1:
-        #     print("verified")
-        #     func_checker=1
-        #     TxnCtrl=TransactionDBController()
-        #     TdbObj=Transaction(cardNumber=form.cardNumber.data,transactionType=form.transactionType.data,transactionSource=form.transactionSource.data,timestamp=form.timestamp.data,amount=form.amount.data)
-        #     TxnCtrl.addTransaction(TdbObj)
-        #     return func_checker
-        # else:
-        #     return 0 
+         
             

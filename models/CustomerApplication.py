@@ -17,7 +17,7 @@ class CustomerApplication(db.Model):
     ppsn=db.column(db.Integer)
     email=db.Column(db.String(30))
 
-    def __init__(self,firstName, lastName, dateOfBirth,address,city,zipcode, monthly_income,cardType, occupation, ppsn,email, contact_number,application_type,  eligibility,error_details):
+    def __init__(self,firstName=None, lastName=None, dateOfBirth=None,address=None,city=None,zipcode=None, monthly_income=None,cardType=None, occupation=None, ppsn=None,email=None, contact_number=None,application_type=None,  eligibility=None,error_details=None):
         self.firstName = firstName
         self.lastName = lastName
         self.dateOfBirth = dateOfBirth
