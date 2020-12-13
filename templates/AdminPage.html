@@ -1,18 +1,5 @@
-<h1 class='center'>
-    Admin Dashboard
-</h1>
-</br>
-</br>
-
-<h2 class='center'>
-    Welcome Admin
-</h2>
-
-<style>
-    .center {
-     text-align: center
-    }
-</style>
+{% extends "AdminLayout.html" %}
+{% block content %}
 <h3>
     Requests to Block
 </h3>
@@ -70,3 +57,5 @@ th, td {
 {% if not data.cardToUnblockList %}
     <p>No cards to unblock</p>
 {%endif %}
+
+{% endblock %}

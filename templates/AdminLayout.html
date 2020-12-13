@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Admin Dashboard</title>
+    <style>
+        .center {
+        text-align: center
+        }
+
+        
+        ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid #e7e7e7;
+        background-color: #f3f3f3;
+        }
+
+    li {
+    float: left;
+    }
+
+    li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+    background-color: #ddd;
+    }
+
+    li a.active {
+    color: white;
+    background-color: #2b5c5f;
+    }
+    </style>
+  </head>
+  
+  <body>
+    <h1 class='center'>
+        Admin Dashboard
+    </h1>
+    <h2 class='center'>
+        Welcome Admin
+    </h2>
+    <ul>
+        <li><a class="active" href="/registerbatch">Schedule Batch</a></li>
+        <li><a href="/showrequests">Requests to Block/Unblock Card</a></li>
+        <li><a href="/block">Block Card</a></li>
+        <li><a href="/unblock">Unblock Card</a></li>
+    </ul>
+     {% block content %}{% endblock %}
+    
+  </body>
+</html>

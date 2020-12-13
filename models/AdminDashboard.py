@@ -1,6 +1,8 @@
 from app import db,app
 from Interfaces.IDashboard import IDashboard
 from dbController.CardDBController import CardDBController
+from models.BlockCard import BlockCard
+from models.UnblockCard import UnblockCard
 from enums.Enums import *
 
 class AdminDashboard(IDashboard):
@@ -12,12 +14,13 @@ class AdminDashboard(IDashboard):
 
         if requestPage == "registerbatch":
             return self.dataForBatch()
-
-        self.template = 'AdminPage.html'
-        obj = CardDBController()
-        self.cardToBlockList = obj.getBlockRequests()
-        self.cardToUnblockList = obj.getUnblockRequests()
-        return self
+        elif requestPage == "showrequests":
+            return self.dataForCardRequests()
+        elif requestPage == "block":
+            return self.blockCardRequests()
+        elif requestPage == "unblock":
+            return self.unblockCardRequests()
+        
     
     def dataForBatch(self):
         self.batchTypes = BatchType.list()
@@ -25,22 +28,26 @@ class AdminDashboard(IDashboard):
         self.template = "ScheduleBatchProcess.html"
         return self
 
-    
+    def dataForCardRequests(self):
+        self.template = 'AdminPage.html'
+        obj = CardDBController()
+        self.cardToBlockList = obj.getBlockRequests()
+        self.cardToUnblockList = obj.getUnblockRequests()
+        return self
+
+    def blockCardRequests(self):
+        self.template = 'BlockCard.html'
+        blockCard = BlockCard()
+        self.blockCardRequests = blockCard.actionOnCustomerCardList()
+        return self
+
+    def unblockCardRequests(self):
+        self.template = 'UnblockCard.html'
+        unblockCard = UnblockCard()
+        self.unblockCardRequests = unblockCard.actionOnCustomerCardList()
+        return self
 
     
-    #remove them in the last
-    #def blockCard(self, cardNumber):
-     #   db.session.query(Card).filter(Card.card_number == cardNumber).update({Card.card_status:0})
-      #  db.session.commit()
     
-    #def unblockCard(self, cardNumber):
-    #    db.session.query(Card).filter(Card.card_number == cardNumber).update({Card.card_status:1})
-     #   db.session.query(Card).filter(Card.card_number == cardNumber).update({Card.block_request:0})
-      #  db.session.commit()
-       # return self
-    
-   # def processBatch(self):
-    #    return
-
     
 

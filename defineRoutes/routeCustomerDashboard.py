@@ -34,8 +34,8 @@ def UserDashboard():
                 flash(message) 
                 return redirect(url_for('UserDashboard'))
             
-        elif "changepin" in request.form: 
-            return redirect(url_for('UserDashboard'))
+#         elif "changepin" in request.form: 
+#             return redirect(url_for('UserDashboard'))
 
     elif request.method == 'GET':
         return(render_template("CustomerPage.html"))
