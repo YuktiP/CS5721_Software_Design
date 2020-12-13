@@ -18,7 +18,8 @@ class AccountDirector:
         #Account
         account.user = user
         account.userId = user.userId
-        account.card = card
+        account.setCard(card)
+        #account.card = card
         account.cardNumber = card.cardNumber
         account.currentBalance=card.creditLimit
         account.availableBalance=card.creditLimit
