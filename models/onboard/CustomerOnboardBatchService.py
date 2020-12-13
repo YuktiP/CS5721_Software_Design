@@ -10,7 +10,7 @@ class CustomerOnBoardBatchService():
 
     def onBoardCustomerBatch(self,docpath):
         data=pd.read_csv(docpath)
-        df =pd.DataFrame(data, columns= ['firstName','lastName','dateOfBirth','email','address','city','pin','occupation','monthly_income','cardType','contact_number','ppsn'])
+        df =pd.DataFrame(data, columns= ['firstName','lastName','dateOfBirth','email','address','city','zipcode','occupation','monthly_income','cardType','contact_number','ppsn'])
         usersOnboarded = []
         for application in df.itertuples():
             onboardService = CustomerOnBoardService()

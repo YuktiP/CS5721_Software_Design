@@ -10,12 +10,7 @@ from wtforms.validators import (
     Optional
 )
 
-class EnrollForm(FlaskForm):
-    FIRSTNAME=StringField('FNAME')
-    SURNAME=StringField('SNAME')
-    EMAIL=StringField('EMAIL')
-    ADDRESS=StringField('ADDR')
-    SUBMIT=SubmitField('SUBMIT')
+
 
 class Login(FlaskForm):
     email = StringField('email')
@@ -41,7 +36,7 @@ class CustomerApplication(FlaskForm):
     date_of_birth=DateField('date_of_birth')
     address=StringField('address')
     city=StringField('city')
-    pin=StringField('pin')
+    zipcode=StringField('zipcode')
     monthly_income=StringField('monthly_income')
     cardType=StringField('cardType')
     occupation=StringField('occupation')

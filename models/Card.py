@@ -14,13 +14,15 @@ class CreditCard(db.Model):
     interest=db.Column(db.Integer)
     blockRequest=db.Column(db.Integer)
     
-    def __init__(self,cardNumber=None,pin=None,cardCode=None,expiryDate=None,status=None,cardType=None,creditLimit=None,interest=None,blockRequest=None):
+    def __init__(self,cardNumber=None,pin=None,cardCode=None,expiryDate=None,cardStatus=None,cardType=None,creditLimit=None,interest=None,blockRequest=None):
         self.cardNumber=cardNumber
         self.pin=pin
         self.cardCode=cardCode
         self.expiryDate=expiryDate
-        self.status=status
+        self.cardStatus=cardStatus
         self.cardType=cardType
+        self.currentCreditLimit=creditLimit
+        self.availableCreditLimit=creditLimit
         self.creditLimit = creditLimit
         self.interest = interest
         self.blockRequest = blockRequest   

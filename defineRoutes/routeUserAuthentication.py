@@ -19,6 +19,7 @@ def login():
             return redirect("/Dashboard")
         if not user:
             return '<h1>User not found!!</h1>'
+            
     return(render_template('login.html',form=form))
 
 @app.route('/logout',methods=['POST','GET'])

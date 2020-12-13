@@ -1,5 +1,4 @@
 from app import db
-from dbController.AccountDBController import AccountDBController
 
 class Account(db.Model):
     accountId=db.Column(db.Integer,primary_key=True)
@@ -26,6 +25,5 @@ class Account(db.Model):
         self.totalPaymentDue=totalPaymentDue
         self.status=status
 
-    def addAccount(self):
-            accountDb = AccountDBController()
-            accountDb.addAccount(self)
+    def setCard(self,card):
+        self.card=card        

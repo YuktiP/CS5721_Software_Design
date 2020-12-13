@@ -38,7 +38,7 @@ def singleupload():
             #Onboard a customer
             result=onboard.onBoardCustomer(application)
             if(result.isSuccess):
-                flash(status.text)
+                flash("onboarded")
     return(render_template(data.template,data=data))
 
 @app.route('/bulkupload', methods=['POST','GET'])

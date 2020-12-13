@@ -1,14 +1,12 @@
-from models.Account import Account
 from models.UserAuthentication import User
 from app import db
-
 
 class AccountDBController():
     def __init__(self):
         self = self
-    def addAccount(self,Account):
+    def addAccount(self,account):
         db.create_all()
-        db.session.add(Account)
+        db.session.add(account)
         db.session.commit()
     def findAccountNumber(self,userId):
         self.result=db.session.query(User.accountNumber).filter(User.userId==userId ).all()  

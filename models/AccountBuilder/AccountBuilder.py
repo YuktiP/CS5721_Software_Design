@@ -21,7 +21,7 @@ class AccountBuilder(abs.AbstractBuilder):
         user.email = customerApplication.email
         user.address = customerApplication.address
         user.city = customerApplication.city
-        user.zip = customerApplication.pin
+        user.zipcode = customerApplication.zipcode
         user.occupation = customerApplication.occupation
         user.monthly_income = customerApplication.monthly_income
         return user
@@ -40,12 +40,14 @@ class AccountBuilder(abs.AbstractBuilder):
             interest=1
 
         card = CreditCard()
-        card.cardNo = randomVar.cardGen() 
+        card.cardNumber = randomVar.cardGen() 
         card.pin = randomVar.pinGen()
         card.cardCode = randomVar.codeGen()
-        card.expDate = randomVar.cardExp()
-        card.status = Status(Status.Active).value
+        card.expiryDate = randomVar.cardExp()
+        card.cardStatus = Status(Status.Active).value
         card.cardType = customerApplication.cardType
+        card.availableCreditLimit=credlimit
+        card.currentCreditLimit=credlimit
         card.creditLimit = credlimit
         card.interest = interest
         return card
