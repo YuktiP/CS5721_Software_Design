@@ -5,7 +5,7 @@ from flask import Flask,request
 from app import app,db
 import unittest
 
-class Test_UnblockCard(unittest.TestCase):
+class Test_UnblockCardPage(unittest.TestCase):
 
     #def __init__(self):
      #   self = self
