@@ -5,13 +5,21 @@ from flask_login import current_user
 from businessController.BlockCardController import BlockCardController
 
 
+
 @app.route('/customerdashboard', methods = ['POST','GET'])
 def customerdashboard(): 
     return(render_template("CustomerPage.html"))
-
-
 '''
-
+def getDashboardData(self,requestedPage):
+ if requestedPage == "viewstatement":
+ self.statementObj = Statement()
+ #self.fetchedStatement = statementObj.getStatement(userId)
+ self.url = '/viewstatement'
+ self.dashboardName = "View Statement"
+ self.template = "ViewStatement.html"
+ return self
+'''
+'''
 @app.route('/customerdashboard', methods = ['GET'])
 def UserDashboard(): 
     if request.method =='POST':
