@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            List of onboarded customers 
-        </title>
-        <style>
-            table, th, td {
-          border: 1px solid black;
-          border-collapse: collapse;
-          }
-          th, td {
-          padding: 15px;
-          text-align: left;
-          }
-          </style>
-        </head>
+{% extends "EmployeeLayout.html" %}
+{% block content %}
 
     <body>
         {% block main%}
@@ -47,5 +32,5 @@
     </body>
     {% endblock %}
 
-    <a href="/singleupload">Navigate back</a>
-</html>
+    <!-- <a href="/singleupload">Navigate back</a> -->
+{% endblock %}

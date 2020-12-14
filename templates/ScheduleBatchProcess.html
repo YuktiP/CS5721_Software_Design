@@ -4,20 +4,30 @@
 
 
 <form name="formbatch" action="/registerbatch"  method="post">
-    <p>
-        Batch Type :<select name="batchProcessType">
-            {% for batchProcessType in BatchProcessTypes %}
-            <option {% if batchProcessType.Selected %}selected="selected"{% endif %}>{{ batchProcessType.Label }}</option>
-            {% endfor %}
-        </select>
-    </p>
-    <p>
-        Select Frequency : <select name="batchType">
-            {% for batchType in BatchTypes %}
-            <option {% if batchType.Selected %}selected="selected"{% endif %}>{{ batchType.Label }}</option>
-            {% endfor %}
-        </select>
-    </p>
+    <table>
+        <tr>
+            <td>Batch Type</td>
+            <td><select name="batchProcessType">
+                {% for batchProcessType in BatchProcessTypes %}
+                <option {% if batchProcessType.Selected %}selected="selected"{% endif %}>{{ batchProcessType.Label }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>
+                Select Frequency
+            </td>
+            <td>
+                <select name="batchType">
+                    {% for batchType in BatchTypes %}
+                    <option {% if batchType.Selected %}selected="selected"{% endif %}>{{ batchType.Label }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+    </table>
+        
+    
     <p>
         <h4>Daily or Fixed </h4>
         Date : <input type="date" name="torundate" placeholder="YYYY-DD-MM">

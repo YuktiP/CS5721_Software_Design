@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head> </head>
-<center>
-<h1>
-    Customer Home
-</h1>
-</center>
-
+{% extends "CustomerLayout.html" %}
+{% block content %}
 <p align="center"><a href= "/ViewStatement" ><button class=grey style="height:75px;width:150px">View Statement</button></a></p>
 <!---- button for changing pin --->
 <p align="center"><a href= "/pinChange" ROUTE HERE ><button class=grey style="height:75px;width:150px">Change Pin</button></a></p>
@@ -22,14 +15,5 @@
   {% endif %}
 {% endwith %}
 
-<form method="post" action="/User">
 
-    <input type="submit" name="viewstatement" value="View Statement">
-    <input type="submit" name="blockcard" value="Block Card">
-    <input type="submit" name="changepin" value="Change Pin">
-
-</form>
-
-
-
-</html>
+{% endblock %}

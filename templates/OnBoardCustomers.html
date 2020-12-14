@@ -1,6 +1,5 @@
-<!doctype html>
-<title>Employee Dashboard</title>
-<h2>Bulk Onboard</h2>
+{% extends "EmployeeLayout.html" %}
+{% block content %}
 <p>
 	{% with messages = get_flashed_messages() %}
 	  {% if messages %}
@@ -23,7 +22,7 @@
 </p>
 </form>
 
-<a href="/singleupload">Single Onboarding</a>
+<!-- <a href="/singleupload">Single Onboarding</a> -->
   
-  
+{% endblock %}
   

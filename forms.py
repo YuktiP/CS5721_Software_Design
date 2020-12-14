@@ -15,7 +15,7 @@ from wtforms.validators import (
 class Login(FlaskForm):
     email = StringField('email')
     password = PasswordField('password')
-    submit = SubmitField('submit')
+    submit = SubmitField('Submit')
 
 class PinChange(FlaskForm):
     password1 = PasswordField('password1')
@@ -30,7 +30,7 @@ class EnterTransactionForm(FlaskForm):
     cardExpiryDate = DateTimeField('timestamp')
     cardPin = IntegerField('cardPin')
     amount=IntegerField('amount')
-    submit=SubmitField('submit')
+    submit=SubmitField('Submit')
 
 class CustomerApplication(FlaskForm):
     first_name=StringField('first_name')

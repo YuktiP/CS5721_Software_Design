@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Statement
-        </title>
-    </head>
-
-    <style>
-        table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: 15px;
-      text-align: left;
-    }
-    </style>
-
-{% block main%}
-<body>
+{% extends "CustomerLayout.html" %}
+{% block content %}
     
     <p>Statement for Card Number: {{ statement.cardNumber }}</p>
-    <table>
+    <table id="customers">
         <tr>
             <th>Transaction Date</th>
             <th>Amount</th>
@@ -57,4 +38,4 @@
 
 </body>
 {% endblock %}
-</html>
+
