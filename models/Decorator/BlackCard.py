@@ -8,5 +8,5 @@ class BlackCard(CardDecorator):
     def getCreditLimit(self):
       return self.decoratedCard.getCreditLimit() + 9000
    
-    def get_ingredients(self):
+    def getInterest(self):
       return self.decoratedCard.getInterest() + 0.8

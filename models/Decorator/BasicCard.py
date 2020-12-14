@@ -8,5 +8,5 @@ class BasicCard(CardDecorator):
     def getCreditLimit(self):
       return self.decoratedCard.getCreditLimit() + 7000
    
-    def get_ingredients(self):
+    def getInterest(self):
       return self.decoratedCard.getInterest() + 0.2

@@ -5,7 +5,7 @@ class CardDecorator(IDecorator):
     def __init__(self,decoratedCard):
       self.decoratedCard = decoratedCard
    
-    def get_cost(self):
+    def getCreditLimit(self):
       return self.decoratedCard.getCreditLimit()
    
     def get_ingredients(self):
