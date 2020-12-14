@@ -15,12 +15,12 @@ class CardDBController():
         return self.unblockCardList
 
     def setCardBlockStatus(self, cardNumber):
-        db.session.query(Creditcard).filter(CreditCard.cardNumber == cardNumber).update({CreditCard.cardStatus:0})
+        db.session.query(CreditCard).filter(CreditCard.cardNumber == cardNumber).update({CreditCard.cardStatus:0})
         db.session.commit()
 
     def setCardUnblockStatus(self, cardNumber):
-        db.session.query(Creditcard).filter(CreditCard.cardNumber == cardNumber).update({CreditCard.cardStatus:1})
-        db.session.query(Creditcard).filter(CreditCard.cardNumber == cardNumber).update({CreditCard.blockRequest:0})
+        db.session.query(CreditCard).filter(CreditCard.cardNumber == cardNumber).update({CreditCard.cardStatus:1})
+        db.session.query(CreditCard).filter(CreditCard.cardNumber == cardNumber).update({CreditCard.blockRequest:0})
         db.session.commit()
 
     def addCard(self,CreditCard):

@@ -1,5 +1,14 @@
 {% extends "AdminLayout.html" %}
 {% block content %}
+</br>
+</br>
+{% with messages = get_flashed_messages() %}
+    {%if messages %}
+        {% for msg in messages %}
+            <p>{{msg}}</p>
+        {% endfor %}
+    {%endif%}
+{% endwith %}
 <h3>
     Requests to Unblock Card
 </h3>
