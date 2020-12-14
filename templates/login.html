@@ -13,7 +13,9 @@
   
   Login here.
     <form method="POST" action="/login">
-      {{ form.csrf_token() }}
+      {% if 'csrf_token' in form %}
+        {{form.csrf_token}}
+      {% endif %}
       <fieldset class="email">
         {{ form.email(placeholder='youremail@example.com') }}
       </fieldset>
