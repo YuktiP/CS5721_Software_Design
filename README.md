@@ -1,8 +1,6 @@
 # CS5721_Software_Design
 
 
-## Configuration
-
 ### Getting the Project
 
 1) From github.com, copy the repository path.
@@ -13,9 +11,9 @@
 
 1) Make sure you have Python 3 and above.
 2) Install the packages in the requirements.txt
-   Use command: $pip install -r requirements.txt
+   Use command: `$pip install -r requirements.txt`
 
 ### How to run
 
-1) Go to the directory and run using the command : 'python app.py'
+1) Go to the directory and run using the command : `python app.py`
 
