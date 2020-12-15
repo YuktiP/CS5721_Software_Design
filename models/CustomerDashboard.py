@@ -9,7 +9,7 @@ class CustomerDashboard(IDashboard):
     def getDashboardData(self,requestedPage):
         if requestedPage == "viewstatement":
             self.statementObj = Statement(current_user.get_id())
-            #self.fetchedStatement = statementObj.getStatement(userId)
+            self.fetchedStatement = self.statementObj.getStatement(current_user.get_id())
             self.url = '/viewstatement'
             self.dashboardName = "View Statement"
             self.template = "ViewStatement.html"
